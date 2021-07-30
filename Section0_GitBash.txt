@@ -1,0 +1,198 @@
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~
+$ mkdir project_dir
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~
+$ cd project_dir
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir
+$ git init
+Initialized empty Git repository in C:/Users/Asus/project_dir/.git/
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ touch index.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git add index.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git commit -m "committed index.html"
+[master (root-commit) 5403d01] committed index.html
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ vi index.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ touch info.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ touch .gitignore
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ vi .gitignore
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git satus
+git: 'satus' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git add index.html
+warning: LF will be replaced by CRLF in index.html.
+The file will have its original line endings in your working directory
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git commit -m "Updated index.html"
+[master 99386b4] Updated index.html
+ 1 file changed, 1 insertion(+)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git log
+commit 99386b4236f5baf91144186c09f29ff5c44d90ee (HEAD -> master)
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 11:40:40 2021 +0530
+
+    Updated index.html
+
+commit 5403d0138c4922c9c276ac6c58e598a7081ecae6
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 11:21:18 2021 +0530
+
+    committed index.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ vi index.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git checkout index.html
+Updated 1 path from the index
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ vi index.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git add index.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git restore --staged index.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git config --global alias.my-add add
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git my-add index.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git commit -m "committed index.html using my-add"
+[master 14802f8] committed index.html using my-add
+ 1 file changed, 3 insertions(+)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git log
+commit 14802f8a40ae75fa84b14a84bbc06c79bcb235e0 (HEAD -> master)
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 12:03:05 2021 +0530
+
+    committed index.html using my-add
+
+commit 99386b4236f5baf91144186c09f29ff5c44d90ee
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 11:40:40 2021 +0530
+
+    Updated index.html
+
+commit 5403d0138c4922c9c276ac6c58e598a7081ecae6
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 11:21:18 2021 +0530
+
+    committed index.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git reset --soft HEAD~1
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/project_dir (master)
+$ git log
+commit 99386b4236f5baf91144186c09f29ff5c44d90ee (HEAD -> master)
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 11:40:40 2021 +0530
+
+    Updated index.html
+
+commit 5403d0138c4922c9c276ac6c58e598a7081ecae6
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 11:21:18 2021 +0530
+
+    committed index.html
