@@ -1,0 +1,191 @@
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git branch css-assignments
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git checkout css-assignments
+Switched to branch 'css-assignments'
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (css-assignments)
+$ git add demo.css
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (css-assignments)
+$ git add omed.css
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (css-assignments)
+$ git commit -m "committing copied css files"
+[css-assignments 754edf9] committing copied css files
+ 2 files changed, 2 insertions(+)
+ create mode 100644 demo.css
+ create mode 100644 omed.css
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (css-assignments)
+$ vi README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (css-assignments)
+$ git add README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (css-assignments)
+$ git commit -m "updated README.txt again"
+[css-assignments 139fdc2] updated README.txt again
+ 1 file changed, 1 insertion(+)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (css-assignments)
+$ git checkout master
+Switched to branch 'master'
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ vi README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git add README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git commit -m "updated README.txt in master"
+[master 5127279] updated README.txt in master
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git checkout css-assignments
+Switched to branch 'css-assignments'
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (css-assignments)
+$ vi demo.css
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (css-assignments)
+$ git demo.css
+git: 'demo.css' is not a git command. See 'git --help'.
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (css-assignments)
+$ git add demo.css
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (css-assignments)
+$ git commit -m "updated demo.css"
+[css-assignments bb0e290] updated demo.css
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (css-assignments)
+$ git checkout master
+Switched to branch 'master'
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git merge css-assignments
+Auto-merging README.txt
+CONFLICT (content): Merge conflict in README.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master|MERGING)
+$ vi README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master|MERGING)
+$ git add README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master|MERGING)
+$ git commit -m "cleared README.txt confl"
+[master becc971] cleared README.txt confl
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ vi README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git add README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git commit -m "cleared README.txt "
+[master bc8b1cb] cleared README.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git merge css-assignments
+Already up to date.
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git merge
+fatal: No remote for the current branch.
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git merge-base
+usage: git merge-base [-a | --all] <commit> <commit>...
+   or: git merge-base [-a | --all] --octopus <commit>...
+   or: git merge-base --independent <commit>...
+   or: git merge-base --is-ancestor <commit> <commit>
+   or: git merge-base --fork-point <ref> [<commit>]
+
+    -a, --all             output all common ancestors
+    --octopus             find ancestors for a single n-way merge
+    --independent         list revs not reachable from others
+    --is-ancestor         is the first one ancestor of the other?
+    --fork-point          find where <commit> forked from reflog of <ref>
+
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git log --all --decorate --oneline --graph
+* bc8b1cb (HEAD -> master) cleared README.txt
+*   becc971 cleared README.txt confl
+|\
+| * bb0e290 (css-assignments) updated demo.css
+| * 139fdc2 updated README.txt again
+| * 754edf9 committing copied css files
+* | 5127279 updated README.txt in master
+|/
+* 0ec7527 (origin/master) updated omed.html
+* a2d924e updated demo.html
+* 2c3c2b3 committing copied html files
+* 79305a6 updated README.txt
+* b7c3452 committing README.txt
+* 730e54f FIRST commit
+* 99386b4 Updated index.html
+* 5403d01 committed index.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ graph
+bash: graph: command not found
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git merge css-assignments
+Already up to date.
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git config --global user.username prajktas
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git remote add origin https://github.com/prajktas/PrajaktaS-Assignment1.git
+error: remote origin already exists.
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git remote set-url origin https://github.com/prajktas/PrajaktaS-Assignment1.git
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git merge css-assignments                                                     Already up to date.
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git branch -d css-assignments
+Deleted branch css-assignments (was bb0e290).
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git remote set-url origin https://github.com/prajktas/PrajaktaS-Assignment1.git
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git push origin master
+Enumerating objects: 21, done.
+Counting objects: 100% (21/21), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (19/19), 1.56 KiB | 400.00 KiB/s, done.
+Total 19 (delta 7), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (7/7), completed with 1 local object.
+To https://github.com/prajktas/PrajaktaS-Assignment1.git
+   0ec7527..bc8b1cb  master -> master
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$

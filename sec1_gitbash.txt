@@ -1,0 +1,292 @@
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~
+$ mkdir Assignments
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~
+$ cd Assignments
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments
+$ touch README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments
+$ git init
+Initialized empty Git repository in C:/Users/Asus/Assignments/.git/
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git add README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git commit -m "committing README.txt"
+[master (root-commit) 7bcdb8b] committing README.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git branch html-assignments
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git checkout html-assignments
+Switched to branch 'html-assignments'
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (html-assignments)
+$ git status
+On branch html-assignments
+nothing to commit, working tree clean
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (html-assignments)
+$ git status
+On branch html-assignments
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        demo.html
+        omed.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (html-assignments)
+$ git add demo.html
+warning: LF will be replaced by CRLF in demo.html.
+The file will have its original line endings in your working directory
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (html-assignments)
+$ git add omed.html
+warning: LF will be replaced by CRLF in omed.html.
+The file will have its original line endings in your working directory
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (html-assignments)
+$ git commit -m "committing copied html files"
+[html-assignments f50b0bf] committing copied html files
+ 2 files changed, 2 insertions(+)
+ create mode 100644 demo.html
+ create mode 100644 omed.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (html-assignments)
+$ vi demo.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (html-assignments)
+$ git add demo.html
+warning: LF will be replaced by CRLF in demo.html.
+The file will have its original line endings in your working directory
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (html-assignments)
+$ git commit -m "updated demo.html"
+[html-assignments 572448a] updated demo.html
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (html-assignments)
+$ git log
+commit 572448a74ebb7cd87903236d71753848b97aecfd (HEAD -> html-assignments)
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 18:56:25 2021 +0530
+
+    updated demo.html
+
+commit f50b0bfc08b3113d8f03e74cd98f5cd676a8e43e
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 18:54:55 2021 +0530
+
+    committing copied html files
+
+commit 7bcdb8bd18d33cd3477a76f109ef52df8940fb91 (master)
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 18:51:15 2021 +0530
+
+    committing README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (html-assignments)
+$ git checkout master
+Switched to branch 'master'
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ vi README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git add README.txt
+warning: LF will be replaced by CRLF in README.txt.
+The file will have its original line endings in your working directory
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git commit -m "updated README.txt"
+[master 67d26d7] updated README.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git checckout html-assignments
+git: 'checckout' is not a git command. See 'git --help'.
+
+The most similar command is
+        checkout
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git checkout html-assignments
+Switched to branch 'html-assignments'
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (html-assignments)
+$ vi omed.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (html-assignments)
+$ git add omed.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (html-assignments)
+$ git commit -m "updated omed.html"
+[html-assignments 591dd0b] updated omed.html
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (html-assignments)
+$ git checkout master
+Switched to branch 'master'
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git merge html-assignments
+Merge made by the 'recursive' strategy.
+ demo.html | 1 +
+ omed.html | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 demo.html
+ create mode 100644 omed.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git branch -d html-assignments
+Deleted branch html-assignments (was 591dd0b).
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git log
+commit e69c19d4121d503fe9b4810cd67d2f879fceb5ce (HEAD -> master)
+Merge: 67d26d7 591dd0b
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 19:00:33 2021 +0530
+
+    Merge branch 'html-assignments'
+    'Added html-assignments branch'
+
+commit 591dd0ba3b6f6fee502bdf225313337f783112a9
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 18:59:37 2021 +0530
+
+    updated omed.html
+
+commit 67d26d7df8807d6f1cc551459bfc5e3360df4d9c
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 18:57:58 2021 +0530
+
+    updated README.txt
+
+commit 572448a74ebb7cd87903236d71753848b97aecfd
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 18:56:25 2021 +0530
+
+    updated demo.html
+
+commit f50b0bfc08b3113d8f03e74cd98f5cd676a8e43e
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 18:54:55 2021 +0530
+
+    committing copied html files
+
+commit 7bcdb8bd18d33cd3477a76f109ef52df8940fb91
+Author: prajktas <prajaktashinde191319@gmail.com>
+Date:   Fri Jul 30 18:51:15 2021 +0530
+
+    committing README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git config --global user.username prajktas
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git remote add origin https://github.com/prajktas/PrajaktaS-Assignment1.git
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git push origin master
+To https://github.com/prajktas/PrajaktaS-Assignment1.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/prajktas/PrajaktaS-Assignment1.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git pull
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 11 (delta 0), reused 11 (delta 0), pack-reused 0
+Unpacking objects: 100% (11/11), 1.77 KiB | 51.00 KiB/s, done.
+From https://github.com/prajktas/PrajaktaS-Assignment1
+ * [new branch]      master     -> origin/master
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> master
+
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git push origin master
+To https://github.com/prajktas/PrajaktaS-Assignment1.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/prajktas/PrajaktaS-Assignment1.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git pull
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> master
+
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git fetch
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git rebase origin/master
+Successfully rebased and updated refs/heads/master.
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git push origin master
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (16/16), 1.33 KiB | 455.00 KiB/s, done.
+Total 16 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), done.
+To https://github.com/prajktas/PrajaktaS-Assignment1.git
+   730e54f..0ec7527  master -> master
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)

@@ -1,0 +1,177 @@
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git branch js-assignments
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git checkout js-assignments
+Switched to branch 'js-assignments'
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (js-assignments)
+$ git status
+On branch js-assignments
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        demo.js
+        omed.js
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (js-assignments)
+$ git add demo.js
+warning: LF will be replaced by CRLF in demo.js.
+The file will have its original line endings in your working directory
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (js-assignments)
+$ git add omed.js
+warning: LF will be replaced by CRLF in omed.js.
+The file will have its original line endings in your working directory
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (js-assignments)
+$ git commit -m "committing copied js files"
+[js-assignments d50a099] committing copied js files
+ 2 files changed, 2 insertions(+)
+ create mode 100644 demo.js
+ create mode 100644 omed.js
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (js-assignments)
+$ vi README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (js-assignments)
+$ git add README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (js-assignments)
+$ git commit -m "updated README.txt"
+[js-assignments 46ccb13] updated README.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (js-assignments)
+$ git checkout master
+Switched to branch 'master'
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ vi README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git add README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git commit -m "updated README.txt again"
+[master 5a2922d] updated README.txt again
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git checkout js-assignments
+Switched to branch 'js-assignments'
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (js-assignments)
+$ vi omed.js
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (js-assignments)
+$ git add omed.js
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (js-assignments)
+$ git commit -m "updated omed.js"
+[js-assignments 26a9232] updated omed.js
+ 1 file changed, 3 insertions(+)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (js-assignments)
+$ git checkout master
+Switched to branch 'master'
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git merge js-assignments
+Auto-merging README.txt
+CONFLICT (content): Merge conflict in README.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master|MERGING)
+$ vi README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master|MERGING)
+$ git add README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master|MERGING)
+$ git commit -m "cleared README.txt's error"
+[master 4bc91e2] cleared README.txt's error
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ vi README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git add README.txt
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git commit -m "cleared README.txt's errors"
+[master 165693c] cleared README.txt's errors
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git merge js-assignments
+Already up to date.
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git branch
+  js-assignments
+* master
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git log --all --decorate --oneline --graph
+* 165693c (HEAD -> master) cleared README.txt's errors
+*   4bc91e2 cleared README.txt's error
+|\
+| * 26a9232 (js-assignments) updated omed.js
+| * 46ccb13 updated README.txt
+| * d50a099 committing copied js files
+* | 5a2922d updated README.txt again
+|/
+* bc8b1cb (origin/master) cleared README.txt
+*   becc971 cleared README.txt confl
+|\
+| * bb0e290 updated demo.css
+| * 139fdc2 updated README.txt again
+| * 754edf9 committing copied css files
+* | 5127279 updated README.txt in master
+|/
+* 0ec7527 updated omed.html
+* a2d924e updated demo.html
+* 2c3c2b3 committing copied html files
+* 79305a6 updated README.txt
+* b7c3452 committing README.txt
+* 730e54f FIRST commit
+* 99386b4 Updated index.html
+* 5403d01 committed index.html
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git merge js-assignments
+Already up to date.
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git branch -d js-assignments
+Deleted branch js-assignments (was 26a9232).
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git remote add origin https://github.com/prajktas/PrajaktaS-Assignment1.git
+error: remote origin already exists.
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git remote set-url origin https://github.com/prajktas/PrajaktaS-Assignment1.git
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$ git push origin master
+Enumerating objects: 21, done.
+Counting objects: 100% (21/21), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (19/19), 1.54 KiB | 525.00 KiB/s, done.
+Total 19 (delta 8), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (8/8), completed with 1 local object.
+To https://github.com/prajktas/PrajaktaS-Assignment1.git
+   bc8b1cb..165693c  master -> master
+
+Asus@LAPTOP-F4GI9F46 MINGW64 ~/Assignments (master)
+$
