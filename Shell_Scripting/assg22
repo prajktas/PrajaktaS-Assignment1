@@ -1,0 +1,6 @@
+prajaktas@prajaktas:~/Desktop/Shell_Scripting$ ./assg22.sh
+Before calling the func,outside name is Pinto
+Inside the func,name is Chinto
+After calling the func,outside name is Pinto
+prajaktas@prajaktas:~/Desktop/Shell_Scripting$ 
+

@@ -1,0 +1,19 @@
+1)
+
+prajaktas@prajaktas:~/Desktop/Shell_Scripting$ ./assg11.sh
+Enter number between 1 to 5 : 5
+Number entered is valid
+prajaktas@prajaktas:~/Desktop/Shell_Scripting$ ./assg11.sh
+Enter number between 1 to 5 : 6
+prajaktas@prajaktas:~/Desktop/Shell_Scripting$ 
+
+
+2)
+
+prajaktas@prajaktas:~/Desktop/Shell_Scripting$ ./assg11.sh
+number :
+Number entered is valid 
+prajaktas@prajaktas:~/Desktop/Shell_Scripting$ ./assg11.sh
+number :prajaktas@prajaktas:~/Desktop/Shell_Scripting$ 
+
+

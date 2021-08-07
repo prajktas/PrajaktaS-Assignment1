@@ -1,0 +1,12 @@
+prajaktas@prajaktas:~/Desktop/Shell_Scripting$ ./assg8.sh
+Enter First name :
+Pinto
+FIRSTNAME : Pinto
+Enter Last name :
+Chinto
+LASTNAME : Chinto
+Enter your age :
+5
+USERAGE : 5
+Hello Pinto Chinto. Your age is 5 and your age after 10years will be 15.
+

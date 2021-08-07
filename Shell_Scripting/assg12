@@ -1,0 +1,11 @@
+prajaktas@prajaktas:~/Desktop/Shell_Scripting$ ./assg12.sh
+Enter a number between 1 to 3 : 
+2
+Entered number is 2.
+Valid number
+prajaktas@prajaktas:~/Desktop/Shell_Scripting$ ./assg12.sh
+Enter a number between 1 to 3 : 
+5
+Entered number is 5.
+Invalid number.
+
