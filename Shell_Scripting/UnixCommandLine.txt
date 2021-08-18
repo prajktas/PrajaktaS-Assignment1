@@ -1,0 +1,988 @@
+20) List the contents of a directory and their attribute
+prajaktas@prajaktas:~/Desktop$ ls -A
+dir  file1.txt  hello.sh  heya.sh  hi.sh  nest  Shell_Scripting  test  vest
+
+
+22) Long list the content with file, directory ownership, permissions,sizes, etc…
+prajaktas@prajaktas:~/Desktop$ ls -l
+total 32
+drwxrwxr-x 2 prajaktas prajaktas 4096 Aug  4 21:28 dir
+-rw-rw-r-- 1 prajaktas prajaktas    0 Aug  5 14:50 file1.txt
+-rwxrwxr-x 1 prajaktas prajaktas   73 Aug  7 14:04 hello.sh
+-rwxrwxr-x 1 prajaktas prajaktas   66 Aug  7 14:02 heya.sh
+-rwxrwxr-x 1 prajaktas prajaktas   94 Aug  7 03:11 hi.sh
+-rw-rw-r-- 1 prajaktas prajaktas   34 Aug  4 22:43 nest
+drwxrwxr-x 2 prajaktas prajaktas 4096 Aug  7 02:36 Shell_Scripting
+-rw-rw-r-- 1 prajaktas prajaktas   17 Aug  4 21:35 test
+-rw-rw-r-- 1 prajaktas prajaktas   12 Aug  4 22:51 vest
+
+
+24) Display the size of the file in human readable format
+prajaktas@prajaktas:~/Desktop$ ls -lh
+total 32K
+drwxrwxr-x 2 prajaktas prajaktas 4.0K Aug  4 21:28 dir
+-rw-rw-r-- 1 prajaktas prajaktas    0 Aug  5 14:50 file1.txt
+-rwxrwxr-x 1 prajaktas prajaktas   73 Aug  7 14:04 hello.sh
+-rwxrwxr-x 1 prajaktas prajaktas   66 Aug  7 14:02 heya.sh
+-rwxrwxr-x 1 prajaktas prajaktas   94 Aug  7 03:11 hi.sh
+-rw-rw-r-- 1 prajaktas prajaktas   34 Aug  4 22:43 nest
+drwxrwxr-x 2 prajaktas prajaktas 4.0K Aug  7 02:36 Shell_Scripting
+-rw-rw-r-- 1 prajaktas prajaktas   17 Aug  4 21:35 test
+-rw-rw-r-- 1 prajaktas prajaktas   12 Aug  4 22:51 vest
+
+
+26) Show all files and folders including hidden one
+prajaktas@prajaktas:~/Desktop$ ls -a
+.   dir        hello.sh  hi.sh  Shell_Scripting  vest
+..  file1.txt  heya.sh   nest   test
+
+
+28) list directories recursively
+prajaktas@prajaktas:~/Desktop$ ls -R
+.:
+dir  file1.txt  hello.sh  heya.sh  hi.sh  nest  Shell_Scripting  test  vest
+
+./dir:
+
+./Shell_Scripting:
+assg1      assg12.sh  assg15.sh  assg21     assg3.sh  assg6.sh  txtfor16.txt
+assg10     assg13     assg16     assg21.sh  assg4     assg7.sh  txtfor18.txt
+assg10.sh  assg13.sh  assg16.sh  assg22     assg4.sh  assg8
+assg11     assg14     assg18.sh  assg22.sh  assg5     assg8.sh
+assg11.sh  assg14.sh  assg1.sh   assg2.sh   assg5.sh  assg9
+assg12     assg15     assg2      assg3      assg6     assg9.sh
+
+
+30) Sort the files by size with largest at the top
+prajaktas@prajaktas:~/Desktop$ ls -sl
+total 32
+4 drwxrwxr-x 2 prajaktas prajaktas 4096 Aug  4 21:28 dir
+0 -rw-rw-r-- 1 prajaktas prajaktas    0 Aug  5 14:50 file1.txt
+4 -rwxrwxr-x 1 prajaktas prajaktas   73 Aug  7 14:04 hello.sh
+4 -rwxrwxr-x 1 prajaktas prajaktas   66 Aug  7 14:02 heya.sh
+4 -rwxrwxr-x 1 prajaktas prajaktas   94 Aug  7 03:11 hi.sh
+4 -rw-rw-r-- 1 prajaktas prajaktas   34 Aug  4 22:43 nest
+4 drwxrwxr-x 2 prajaktas prajaktas 4096 Aug  7 02:36 Shell_Scripting
+4 -rw-rw-r-- 1 prajaktas prajaktas   17 Aug  4 21:35 test
+4 -rw-rw-r-- 1 prajaktas prajaktas   12 Aug  4 22:51 vest
+
+
+32) Sort the files by last time modified displaying the newest first.
+prajaktas@prajaktas:~/Desktop$ ls -l -t
+total 32
+-rwxrwxr-x 1 prajaktas prajaktas   73 Aug  7 14:04 hello.sh
+-rwxrwxr-x 1 prajaktas prajaktas   66 Aug  7 14:02 heya.sh
+-rwxrwxr-x 1 prajaktas prajaktas   94 Aug  7 03:11 hi.sh
+drwxrwxr-x 2 prajaktas prajaktas 4096 Aug  7 02:36 Shell_Scripting
+-rw-rw-r-- 1 prajaktas prajaktas    0 Aug  5 14:50 file1.txt
+-rw-rw-r-- 1 prajaktas prajaktas   12 Aug  4 22:51 vest
+-rw-rw-r-- 1 prajaktas prajaktas   34 Aug  4 22:43 nest
+-rw-rw-r-- 1 prajaktas prajaktas   17 Aug  4 21:35 test
+drwxrwxr-x 2 prajaktas prajaktas 4096 Aug  4 21:28 dir
+
+
+34) Diplay the location of a program/command, where it is installed.
+prajaktas@prajaktas:~/Desktop$ which bash
+/usr/bin/bash
+
+
+36) Which command is used to switch directory from one to another
+prajaktas@prajaktas:~/Desktop$ cd
+prajaktas@prajaktas:~$ 
+
+
+38) List all the environment variables set for the current shell environment
+prajaktas@prajaktas:~/Desktop$ printenv
+SHELL=/bin/bash
+SESSION_MANAGER=local/prajaktas:@/tmp/.ICE-unix/1529,unix/prajaktas:/tmp/.ICE-unix/1529
+QT_ACCESSIBILITY=1
+COLORTERM=truecolor
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_MENU_PREFIX=gnome-
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+LANGUAGE=en_IN:en
+GNOME_SHELL_SESSION_MODE=ubuntu
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+XMODIFIERS=@im=ibus
+DESKTOP_SESSION=ubuntu
+SSH_AGENT_PID=1469
+GTK_MODULES=gail:atk-bridge
+PWD=/home/prajaktas/Desktop
+LOGNAME=prajaktas
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_TYPE=x11
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+HOME=/home/prajaktas
+USERNAME=prajaktas
+IM_CONFIG_PHASE=1
+LANG=en_IN
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+VTE_VERSION=6003
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/cf39bc75_075e_464c_9152_9768136b33dc
+INVOCATION_ID=76ab81bc3e1f4a1fb46e027fb926aec4
+MANAGERPID=1254
+LESSCLOSE=/usr/bin/lesspipe %s %s
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=prajaktas
+GNOME_TERMINAL_SERVICE=:1.108
+DISPLAY=:0
+SHLVL=1
+QT_IM_MODULE=ibus
+XDG_RUNTIME_DIR=/run/user/1000
+JOURNAL_STREAM=8:34113
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+GDMSESSION=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+_=/usr/bin/printenv
+OLDPWD=/home/prajaktas
+
+
+40) Did you notice something in the output of "env" command?
+It contains the name of env variable along with its path.
+
+
+42) Which command is used to print the text or any variables value in the Console/Terminal?
+echo command is used.
+
+
+44) Print the value of the env variable "PATH" on the console
+prajaktas@prajaktas:~/Desktop$ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+
+46) Is linux a case-sensitive operating system?
+Yes, because every letter (capital or small) has different functions.
+
+
+48) Is, "Ls" same as "ls"?
+No. ls prints list of files and directories while Ls doesn't exist.
+
+
+50) Display your currently logged in user
+prajaktas@prajaktas:~/Desktop$ who
+prajaktas :0           2021-08-07 10:10 (:0)
+prajaktas@prajaktas:~/Desktop$ whoami
+prajaktas
+
+
+52) how do you change the currrently logged in user to another user?
+using usermod command
+
+
+54) Which command is used to leave a shell environment that you are currently logged in to?
+exit command is used
+
+
+56) How do you reboot the system?
+using reboot command
+
+
+58) How do you shutdown the system?
+using shutdown command
+
+
+60) Display all the major running processes in the system
+prajaktas@prajaktas:~/Desktop$ ps -aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.5 102176 11584 ?        Ss   10:34   0:02 /sbin/init sp
+root           2  0.0  0.0      0     0 ?        S    10:34   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   10:34   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<   10:34   0:00 [rcu_par_gp]
+root           6  0.0  0.0      0     0 ?        I<   10:34   0:00 [kworker/0:0H
+root           9  0.0  0.0      0     0 ?        I<   10:34   0:00 [mm_percpu_wq
+root          10  0.0  0.0      0     0 ?        S    10:34   0:00 [ksoftirqd/0]
+root          11  0.0  0.0      0     0 ?        I    10:34   0:02 [rcu_sched]
+root          12  0.0  0.0      0     0 ?        S    10:34   0:00 [migration/0]
+root          13  0.0  0.0      0     0 ?        S    10:34   0:00 [idle_inject/
+root          14  0.0  0.0      0     0 ?        S    10:34   0:00 [cpuhp/0]
+root          15  0.0  0.0      0     0 ?        S    10:34   0:00 [cpuhp/1]
+root          16  0.0  0.0      0     0 ?        S    10:34   0:00 [idle_inject/
+root          17  0.0  0.0      0     0 ?        S    10:34   0:00 [migration/1]
+root          18  0.0  0.0      0     0 ?        S    10:34   0:00 [ksoftirqd/1]
+root          20  0.0  0.0      0     0 ?        I<   10:34   0:00 [kworker/1:0H
+root          21  0.0  0.0      0     0 ?        S    10:34   0:00 [kdevtmpfs]
+root          22  0.0  0.0      0     0 ?        I<   10:34   0:00 [netns]
+root          23  0.0  0.0      0     0 ?        S    10:34   0:00 [rcu_tasks_kt
+root          24  0.0  0.0      0     0 ?        S    10:34   0:00 [rcu_tasks_ru
+root          25  0.0  0.0      0     0 ?        S    10:34   0:00 [rcu_tasks_tr
+root          26  0.0  0.0      0     0 ?        S    10:34   0:00 [kauditd]
+root          27  0.0  0.0      0     0 ?        S    10:34   0:00 [khungtaskd]
+root          28  0.0  0.0      0     0 ?        S    10:34   0:00 [oom_reaper]
+root          29  0.0  0.0      0     0 ?        I<   10:34   0:00 [writeback]
+root          30  0.0  0.0      0     0 ?        S    10:34   0:00 [kcompactd0]
+root          31  0.0  0.0      0     0 ?        SN   10:34   0:00 [ksmd]
+root          32  0.0  0.0      0     0 ?        SN   10:34   0:00 [khugepaged]
+root          78  0.0  0.0      0     0 ?        I<   10:34   0:00 [kintegrityd]
+root          79  0.0  0.0      0     0 ?        I<   10:34   0:00 [kblockd]
+root          80  0.0  0.0      0     0 ?        I<   10:34   0:00 [blkcg_punt_b
+root          81  0.0  0.0      0     0 ?        I<   10:34   0:00 [tpm_dev_wq]
+root          82  0.0  0.0      0     0 ?        I<   10:34   0:00 [ata_sff]
+root          83  0.0  0.0      0     0 ?        I<   10:34   0:00 [md]
+root          84  0.0  0.0      0     0 ?        I<   10:34   0:00 [edac-poller]
+root          85  0.0  0.0      0     0 ?        I<   10:34   0:00 [devfreq_wq]
+root          87  0.0  0.0      0     0 ?        S    10:34   0:00 [watchdogd]
+root          89  0.0  0.0      0     0 ?        I<   10:34   0:00 [pm_wq]
+root          93  0.0  0.0      0     0 ?        S    10:34   0:00 [kswapd0]
+root          94  0.0  0.0      0     0 ?        S    10:34   0:00 [ecryptfs-kth
+root          96  0.0  0.0      0     0 ?        I<   10:34   0:00 [kthrotld]
+root          97  0.0  0.0      0     0 ?        I<   10:34   0:00 [acpi_thermal
+root          98  0.0  0.0      0     0 ?        S    10:34   0:00 [scsi_eh_0]
+root          99  0.0  0.0      0     0 ?        I<   10:34   0:00 [scsi_tmf_0]
+root         100  0.0  0.0      0     0 ?        S    10:34   0:00 [scsi_eh_1]
+root         101  0.0  0.0      0     0 ?        I<   10:34   0:00 [scsi_tmf_1]
+root         103  0.0  0.0      0     0 ?        I<   10:34   0:00 [vfio-irqfd-c
+root         105  0.0  0.0      0     0 ?        I<   10:34   0:00 [ipv6_addrcon
+root         114  0.0  0.0      0     0 ?        I<   10:34   0:00 [kstrp]
+root         117  0.0  0.0      0     0 ?        I<   10:34   0:00 [zswap-shrink
+root         118  0.0  0.0      0     0 ?        I<   10:34   0:00 [kworker/u5:0
+root         123  0.0  0.0      0     0 ?        I<   10:34   0:00 [charger_mana
+root         164  0.0  0.0      0     0 ?        I<   10:34   0:00 [kworker/0:1H
+root         165  0.0  0.0      0     0 ?        S    10:34   0:00 [scsi_eh_2]
+root         166  0.0  0.0      0     0 ?        I<   10:34   0:00 [scsi_tmf_2]
+root         168  0.0  0.0      0     0 ?        I<   10:34   0:00 [kworker/1:1H
+root         188  0.0  0.0      0     0 ?        S    10:34   0:00 [jbd2/sda5-8]
+root         189  0.0  0.0      0     0 ?        I<   10:34   0:00 [ext4-rsv-con
+root         228  0.0  1.0  53924 20596 ?        S<s  10:34   0:01 /lib/systemd/
+root         257  0.0  0.3  23660  6924 ?        Ss   10:34   0:00 /lib/systemd/
+root         267  0.0  0.0      0     0 ?        S<   10:34   0:00 [loop0]
+root         271  0.0  0.0      0     0 ?        S<   10:34   0:00 [loop1]
+root         272  0.0  0.0      0     0 ?        S<   10:34   0:00 [loop2]
+root         273  0.0  0.0      0     0 ?        S<   10:34   0:00 [loop3]
+root         274  0.0  0.0      0     0 ?        S<   10:34   0:00 [loop4]
+root         285  0.0  0.0      0     0 ?        S<   10:34   0:00 [loop5]
+root         287  0.0  0.0      0     0 ?        S<   10:34   0:00 [loop6]
+root         294  0.0  0.0      0     0 ?        S<   10:34   0:00 [loop7]
+root         295  0.0  0.0      0     0 ?        S<   10:34   0:00 [loop8]
+root         296  0.0  0.0      0     0 ?        S<   10:34   0:00 [loop9]
+root         298  0.0  0.0      0     0 ?        I<   10:34   0:00 [iprt-VBoxWQu
+root         319  0.0  0.0      0     0 ?        S    10:34   0:00 [irq/18-vmwgf
+root         321  0.0  0.0      0     0 ?        I<   10:34   0:00 [ttm_swap]
+root         323  0.0  0.0      0     0 ?        I<   10:34   0:00 [cryptd]
+systemd+     513  0.0  0.6  24100 12288 ?        Ss   10:34   0:00 /lib/systemd/
+systemd+     514  0.0  0.3  90456  6276 ?        Ssl  10:34   0:00 /lib/systemd/
+root         545  0.0  0.4 250520  9384 ?        Ssl  10:34   0:00 /usr/lib/acco
+root         546  0.0  0.0   2548   780 ?        Ss   10:34   0:00 /usr/sbin/acp
+avahi        548  0.0  0.1   8536  3492 ?        Ss   10:34   0:00 avahi-daemon:
+root         550  0.0  0.1  18052  2956 ?        Ss   10:34   0:00 /usr/sbin/cro
+root         554  0.0  0.4  37212  8956 ?        Ss   10:34   0:00 /usr/sbin/cup
+message+     555  0.0  0.3   9884  6300 ?        Ss   10:34   0:03 /usr/bin/dbus
+root         556  0.0  1.1 347400 21512 ?        Ssl  10:34   0:05 /usr/sbin/Net
+root         578  0.0  0.1  81836  3652 ?        Ssl  10:34   0:00 /usr/sbin/irq
+root         579  0.0  1.0  47940 20248 ?        Ss   10:34   0:00 /usr/bin/pyth
+root         580  0.0  0.6 253660 12780 ?        Ssl  10:34   0:02 /usr/lib/poli
+syslog       582  0.0  0.2 224356  4412 ?        Ssl  10:34   0:00 /usr/sbin/rsy
+root         589  0.0  1.4 859184 28944 ?        Ssl  10:34   0:03 /usr/lib/snap
+root         590  0.0  0.3 244348  6548 ?        Ssl  10:34   0:00 /usr/libexec/
+root         593  0.0  0.4  16964  8344 ?        Ss   10:34   0:00 /lib/systemd/
+root         595  0.0  0.7 395584 14556 ?        Ssl  10:34   0:00 /usr/lib/udis
+root         600  0.0  0.2  13688  4996 ?        Ss   10:34   0:00 /sbin/wpa_sup
+avahi        609  0.0  0.0   8352   328 ?        S    10:34   0:00 avahi-daemon:
+root         632  0.0  0.6 180576 12736 ?        Ssl  10:34   0:00 /usr/sbin/cup
+lp           634  0.0  0.3  15340  6444 ?        S    10:34   0:00 /usr/lib/cups
+root         654  0.0  0.5 313756 10596 ?        Ssl  10:34   0:00 /usr/sbin/Mod
+root         670  0.0  1.1 126488 22912 ?        Ssl  10:34   0:00 /usr/bin/pyth
+whoopsie     690  0.0  0.8 327256 15760 ?        Ssl  10:34   0:00 /usr/bin/whoo
+kernoops     691  0.0  0.0  11264   444 ?        Ss   10:34   0:00 /usr/sbin/ker
+kernoops     693  0.0  0.0  11264   452 ?        Ss   10:34   0:00 /usr/sbin/ker
+root         859  0.0  0.4 248248  8568 ?        Ssl  10:34   0:00 /usr/sbin/gdm
+root         863  0.0  0.1 369588  2780 ?        Sl   10:34   0:04 /usr/sbin/VBo
+rtkit        906  0.0  0.1 152940  2988 ?        SNsl 10:34   0:00 /usr/libexec/
+root         992  0.0  0.4 260908  9676 ?        Ssl  10:34   0:00 /usr/lib/upow
+colord      1210  0.0  0.8 257540 16212 ?        Ssl  10:34   0:00 /usr/libexec/
+root        1245  0.0  0.5 323296 10152 ?        Sl   10:35   0:00 gdm-session-w
+prajakt+    1254  0.0  0.6  20496 11776 ?        Ss   10:35   0:01 /lib/systemd/
+prajakt+    1255  0.0  0.1 103452  3556 ?        S    10:35   0:00 (sd-pam)
+prajakt+    1260  0.0  0.9 1941448 19404 ?       S<sl 10:35   0:01 /usr/bin/puls
+prajakt+    1262  0.0  1.2 519880 24036 ?        SNsl 10:35   0:00 /usr/libexec/
+prajakt+    1265  0.0  0.3 248816  7208 ?        Sl   10:35   0:00 /usr/bin/gnom
+prajakt+    1269  0.0  0.4  11328  8384 ?        Ss   10:35   0:01 /usr/bin/dbus
+prajakt+    1273  0.0  0.4 248436  7816 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1278  0.0  0.4 382064  8444 ?        Sl   10:35   0:00 /usr/libexec/
+prajakt+    1280  0.0  0.5 326068 11240 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1303  0.0  0.3 172652  6632 tty2     Ssl+ 10:35   0:00 /usr/lib/gdm3
+prajakt+    1305  0.0  0.3 244508  6044 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1309  0.0  1.8 554896 36404 ?        Sl   10:35   0:00 /usr/libexec/
+prajakt+    1311  0.3  3.5 836532 68428 tty2     Sl+  10:35   0:49 /usr/lib/xorg
+prajakt+    1327  0.0  0.5 327280 11364 ?        Sl   10:35   0:00 /usr/libexec/
+prajakt+    1334  0.0  0.3 246608  6952 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1339  0.0  0.3 244332  6256 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1343  0.0  0.4 325360  8788 ?        Ssl  10:35   0:01 /usr/libexec/
+prajakt+    1357  0.0  0.7 199484 15440 tty2     Sl+  10:35   0:00 /usr/libexec/
+prajakt+    1435  0.0  0.0  31244   364 ?        S    10:35   0:00 /usr/bin/VBox
+prajakt+    1436  0.0  0.2 163512  4252 ?        Sl   10:35   0:00 /usr/bin/VBox
+prajakt+    1446  0.0  0.0  31244   364 ?        S    10:35   0:00 /usr/bin/VBox
+prajakt+    1447  0.0  0.1 163480  2832 ?        Sl   10:35   0:00 /usr/bin/VBox
+prajakt+    1454  0.0  0.0  31244   364 ?        S    10:35   0:00 /usr/bin/VBox
+prajakt+    1455  0.3  0.1 163996  2728 ?        Sl   10:35   0:45 /usr/bin/VBox
+prajakt+    1461  0.0  0.0  31244   364 ?        S    10:35   0:00 /usr/bin/VBox
+prajakt+    1462  0.0  0.1 165760  3412 ?        Sl   10:35   0:00 /usr/bin/VBox
+prajakt+    1469  0.0  0.0   6040   456 ?        Ss   10:35   0:00 /usr/bin/ssh-
+prajakt+    1496  0.0  0.4 309732  9396 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1501  0.0  0.2   7248  4152 ?        S    10:35   0:00 /usr/bin/dbus
+prajakt+    1522  0.0  0.2  98696  4252 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1529  0.0  0.8 569024 17468 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1545  1.3 17.4 4205676 340364 ?      Rsl  10:35   3:30 /usr/bin/gnom
+prajakt+    1570  0.0  0.5 323424 10332 ?        Sl   10:35   0:00 ibus-daemon -
+prajakt+    1574  0.0  0.4 249008  9112 ?        Sl   10:35   0:00 /usr/libexec/
+prajakt+    1575  0.0  1.7 286704 33160 ?        Sl   10:35   0:02 /usr/libexec/
+prajakt+    1579  0.0  1.5 209000 29792 ?        Sl   10:35   0:00 /usr/libexec/
+prajakt+    1582  0.0  0.4 248856  9204 ?        Sl   10:35   0:00 /usr/libexec/
+prajakt+    1592  0.0  0.3 162912  6472 ?        Sl   10:35   0:00 /usr/libexec/
+prajakt+    1596  0.0  0.4 248708  9096 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1601  0.0  1.0 581628 21024 ?        Sl   10:35   0:00 /usr/libexec/
+prajakt+    1609  0.0  1.3 1078988 26008 ?       Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1616  0.0  1.5 847444 30804 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1625  0.0  0.2 156200  5652 ?        Sl   10:35   0:00 /usr/libexec/
+prajakt+    1628  0.0  1.5 755824 29288 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1646  0.0  1.3 2607384 26844 ?       Sl   10:35   0:00 /usr/bin/gjs 
+prajakt+    1654  0.0  0.5 326288 10872 ?        Sl   10:35   0:00 /usr/libexec/
+prajakt+    1665  0.0  0.4 322604  9012 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1670  0.0  1.6 972380 31904 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1672  0.0  0.8 383000 17164 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1673  0.0  0.4 322804  9448 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1675  0.0  1.5 356940 30076 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1678  0.0  1.7 699320 33156 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1681  0.0  1.7 624340 33656 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1682  0.0  0.5 256860 11132 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1686  0.0  0.3 465732  5944 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1687  0.0  0.3 244140  5884 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1693  0.0  0.6 477540 12472 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1699  0.0  0.5 326768 10556 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1703  0.0  0.5 330468 10964 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1704  0.0  0.4 396572  9408 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1707  0.0  3.1 647384 60720 ?        Sl   10:35   0:00 /usr/libexec/
+prajakt+    1717  0.0  1.5 356464 29876 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1721  0.0  0.5 326928 10396 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1723  0.0  1.6 357564 31488 ?        Ssl  10:35   0:00 /usr/libexec/
+prajakt+    1726  0.0  0.2 231800  5796 ?        Sl   10:35   0:00 /usr/libexec/
+prajakt+    1747  0.0  0.4 175116  8788 ?        Sl   10:35   0:00 /usr/libexec/
+prajakt+    1762  0.0  0.7 350824 14932 ?        Sl   10:35   0:00 /usr/libexec/
+prajakt+    1885  0.0  0.3 170976  6336 ?        Ssl  10:36   0:00 /usr/libexec/
+prajakt+    1888  0.0  2.2 472820 43784 ?        Sl   10:36   0:01 update-notifi
+prajakt+    2441  0.1  2.7 829540 53788 ?        Rsl  11:51   0:15 /usr/libexec/
+root        2871  0.0  1.2 387732 24740 ?        Ssl  13:37   0:00 /usr/libexec/
+root        3842  0.0  0.0      0     0 ?        I    13:56   0:00 [kworker/u4:2
+prajakt+    3860  0.0  0.5 545196 11000 ?        Ssl  13:57   0:00 /usr/libexec/
+prajakt+    3864  0.0  0.3 466056  6328 ?        Ssl  13:57   0:00 /usr/libexec/
+prajakt+    3873  0.0  2.3 888436 45784 ?        Ssl  13:57   0:00 /usr/libexec/
+prajakt+    3945  0.0  0.5 400160 10300 ?        Sl   13:59   0:00 /usr/libexec/
+prajakt+    3958  0.0  0.4 323620  8380 ?        Sl   13:59   0:00 /usr/libexec/
+root        4189  0.0  0.0      0     0 ?        I    14:10   0:00 [kworker/u4:0
+root        4229  0.0  0.0      0     0 ?        I    14:11   0:00 [kworker/0:5-
+prajakt+    4332  0.0  0.2  19248  4868 pts/0    Ss   14:22   0:00 bash
+root        4349  0.0  0.0      0     0 ?        I    14:23   0:00 [kworker/1:2-
+root        4361  0.0  0.0      0     0 ?        I    14:31   0:00 [kworker/1:0-
+root        4400  0.0  0.0      0     0 ?        I    14:34   0:00 [kworker/0:0-
+root        4417  0.0  0.0      0     0 ?        I    14:42   0:00 [kworker/u4:1
+prajakt+    4422  0.0  0.1  20320  3464 pts/0    R+   14:47   0:00 ps -aux
+
+
+64) Display the name of the system kernel
+prajaktas@prajaktas:~/Desktop$ uname -s
+Linux
+
+
+66) display the kernel release number
+prajaktas@prajaktas:~/Desktop$ uname -r
+5.8.0-43-generic
+
+
+68) display the machine type of the current kernel
+prajaktas@prajaktas:~/Desktop$ uname -m
+x86_64
+
+
+70) Display the name of the operating system that the kernel is running on
+prajaktas@prajaktas:~/Desktop$ uname -o
+GNU/Linux
+
+
+72) Display all info that uname command can show.
+prajaktas@prajaktas:~/Desktop$ uname -r
+5.8.0-43-generic
+prajaktas@prajaktas:~/Desktop$ uname -s
+Linux
+prajaktas@prajaktas:~/Desktop$ uname -a
+Linux prajaktas 5.8.0-43-generic #49~20.04.1-Ubuntu SMP Fri Feb 5 09:57:56 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+prajaktas@prajaktas:~/Desktop$ uname -n
+prajaktas
+
+
+74) Display the name of directory that you are currently pointing to
+prajaktas@prajaktas:~/Desktop$ echo $PWD
+/home/prajaktas/Desktop
+
+
+76) change the current directory to another directory that you have in your system.
+cd <dir_name>
+
+
+78) Go up one directory
+cd ..
+
+
+80) Return to last directory
+cd -
+
+
+82) change the current directory to home(logged in user's) directory
+cd
+
+
+84) How to check all the command used from the prompt (Command History)
+history command is used
+
+
+86) In which file the history of commands are stored in?
+.bash_history
+
+
+88) How many lines of history does the system keep and from where you can change it?
+prajaktas@prajaktas:~/Desktop/dir$ echo $HISTSIZE
+1000
+
+prajaktas@prajaktas:~/Desktop/dir$ HISTSIZE=2000
+prajaktas@prajaktas:~/Desktop/dir$ echo $HISTSIZE
+2000
+
+
+90) How can you modify bash's history behaviour
+Using PROMPT_COMMAND. PROMPT_COMMAND='history -a
+
+
+92) Display all the commands entered so far, now, try to run a particular command from the history list without typing that command.
+prajaktas@prajaktas:~/Desktop/dir$ history
+    1  sudo apt install bulid-essential dkms linux-headers-$(uname -r)
+    2  sudo apt-get install dkms
+    3  sudo apt-get update
+    4  sudo apt-get install dkms
+    5  ./hello.sh
+    6  cd Desktop
+    7  ./hello.sh
+    8  clear
+    9  ./hello.sh
+   10  ./hello.sh mark john jack
+   11  clear
+   12  ./hello.sh
+   13  clear
+   14  ./hello.sh
+   15  touch nest
+   16  ./hello.sh
+   17  mkdir dir
+   18  ./hello.sh
+   19  ls -l
+   20  cat > test
+   21  ls -l
+   22  cat > test
+   23  ls -l
+   24  cat > nest
+   25  ls -l
+   26  ./hello.sh
+   27  clear
+   28  ./hello.sh
+   29  ls
+   30  touch vest
+   31  ls -al
+   32  chmot -w vest
+   33  chmod -w vest
+   34  ls -al
+   35  ./hello.sh
+   36  chmod +w vest
+   37  ls -al
+   38  ./hello.sh
+   39  cat vest
+   40  ./hello.sh
+   41  clear
+   42  ./hello.sh
+   43  clear
+   44  ./hello.sh
+   45  clear
+   46  ./hello.sh
+   47  clear
+   48  ./hello.sh
+   49  clear
+   50  ./hello.sh
+   51  ./hello.sh van
+   52  ./hello.sh car
+   53  ./hello.sh truck
+   54  ./hello.sh *
+   55  clear
+   56  ./hello.sh *
+   57  ./hello.sh
+   58  cd Desktop
+   59  ./hello.sh
+   60  clear
+   61  ./hello.sh
+   62  cd Desktop
+   63  ./hello.sh
+   64  ls -a
+   65  cd Desktop
+   66  ./hello.sh
+   67  la -a
+   68  ls -a
+   69  ./hello.sh
+   70  clear
+   71  ./hello.sh
+   72  ls
+   73  touch file1.txt
+   74  ls
+   75  ./hello.sh
+   76  ./hello.sh file1.txt
+   77  clear
+   78  ./hello.sh
+   79  cd Desktop
+   80  cd Shell_Scripting
+   81  touch assg1.sh
+   82  ls
+   83  ls -al
+   84  ./assg1.sh
+   85  chmod +x assg1.sh
+   86  ls -al
+   87  ./assg1.sh
+   88  ls
+   89  ./assg1.sh
+   90  touch assg1
+   91  touch assg2.sh
+   92  ./assg2.sh
+   93  chmod +x assg2.sh
+   94  ./assg2.sh
+   95  clear
+   96  ./assg2.sh
+   97  touch assg3.sh
+   98  chmod +x  assg3.sh
+   99  ./assg3.sh
+  100  touch assg4.sh
+  101  chmod +x  assg4.sh
+  102  ./assg4.sh
+  103  clear
+  104  touch assg5.sh
+  105  ./assg5.sh
+  106  chmod +x  assg5.sh
+  107  ./assg5.sh
+  108  clear
+  109  ./assg5.sh
+  110  touch assg6.sh
+  111  chmod +x  assg6.sh
+  112  ./assg6.sh
+  113  clear
+  114  ./assg6.sh
+  115  touch assg7.sh
+  116  chmod +x  assg7.sh
+  117  ./assg7.sh
+  118  /.alias
+  119  man 1 alias
+  120  alias
+  121  man l alias
+  122  ./assg7.sh
+  123  clear
+  124  touch assg8.sh
+  125  chmod +x assg8.sh
+  126  ./assg8.sh
+  127  clear
+  128  ./assg8.sh
+  129  ./assg7.sh
+  130  touch assg9.sh
+  131  chmod +x assg9.sh
+  132  ./assg9.sh
+  133  clear
+  134  ./assg9.sh
+  135  touch assg10.sh
+  136  chmod +x assg10.sh
+  137  ./assg10.sh
+  138  ./assg10.sh John 1023
+  139  clear
+  140  ./assg10.sh John 1023
+  141  touch assg11.sh
+  142  chmod +x assg11.sh
+  143  assg11.sh
+  144  ./assg11.sh
+  145  clear
+  146  ./assg11.sh
+  147  clear
+  148  ./assg11.sh
+  149  touch assg12.sh
+  150  chmod +x assg12.sh
+  151  ./assg12.sh
+  152  clear
+  153  ./assg12.sh
+  154  clear
+  155  touch assg13.sh
+  156  chmod +x assg13.sh
+  157  ./assg13.sh
+  158  clear
+  159  ./assg13.sh
+  160  clear
+  161  ./assg13.sh
+  162  touch assg14.sh
+  163  chmod +x assg14.sh
+  164  ./assg14.sh
+  165  clear
+  166  ./assg14.sh
+  167  clear
+  168  ./assg14.sh
+  169  touch assg15.sh
+  170  chmod +x assg15.sh
+  171  ./assg15.sh
+  172  clear
+  173  ./assg15.sh
+  174  clear
+  175  ./assg15.sh
+  176  clear
+  177  ./assg15.sh
+  178  touch assg16.sh
+  179  chmod +x assg16.sh
+  180  ./assg16.sh
+  181  touch txtfor16.txt
+  182  vi txtfor16.txt
+  183  ./assg16.sh
+  184  clear
+  185  ./assg16.sh
+  186  touch assg17.sh
+  187  chmod +x assg17.sh
+  188  clear
+  189  touch txtfor17.txt
+  190  vi txtfor17.txt
+  191  ./assg17.sh
+  192  ./assg18.sh
+  193  touch assg21.sh
+  194  chmod +x assg21.sh
+  195  ./assg21.sh
+  196  clear
+  197  ./assg21.sh
+  198  touch assg22.sh
+  199  chmod +x assg22.sh
+  200  ./assg22.sh
+  201  clear
+  202  ./assg22.sh
+  203  ls -a
+  204  clear
+  205  cd prajaktas
+  206  cd Desktop
+  207  ls -a
+  208  ls -al
+  209  clear
+  210  ls -a
+  211  ls -l
+  212  ls -s
+  213  ls -X a
+  214  ls -X 
+  215  ls
+  216  ls -h
+  217  ls -lh
+  218  ls -A
+  219  ls -a
+  220  tree Desktop
+  221  cd
+  222  tree Desktop
+  223  cd Desktop
+  224  ls -R
+  225  ls -sl
+  226  ls -s
+  227  ls -l -t
+  228  which bsh
+  229  which bash
+  230  cd
+  231  printenv
+  232  printenv|less
+  233  echo $PATH
+  234  ls
+  235  Ls
+  236  who
+  237  whoami
+  238  w
+  239  su -prjkta
+  240  su --help
+  241  usermod prajkta
+  242  exit
+  243  ps -aux
+  244  uname -r
+  245  showrev -a
+  246  showrev [-a]
+  247  uname
+  248  uname [-a]
+  249  hostnamectl | grep Kernel
+  250  uname -s
+  251  uname -a
+  252  $PWD
+  253  echo $PWD
+  254  cd Desktop
+  255  cd ..
+  256  cd -
+  257  history
+  258  $HISTSIZE
+  259  cd
+  260  $HISTSIZE
+  261  echo $HISTSIZE
+  262  HISTSIZE=2000
+  263  echo $HISTSIZE
+  264  history
+  265  ~/.bashrc
+  266  ls -al
+  267  chmod +wx .bashrc
+  268  ~/.bashrc
+  269  printenv
+  270  get-childitem env:*
+  271  get -childitem env:*
+  272  get- childitem env:*
+  273  get-childitem env:*
+  274  get-childitem env:* | sort-object Key | more
+  275  -bash
+  276  bash
+  277  man gnome-terminal
+  278  cd Desktop
+  279  chmod +x heya.sh
+  280  ls -A
+  281  ls -l
+  282  ls -lh
+  283  ls -a
+  284  ls -R
+  285  ls -las
+  286  ls -sl
+  287  ls -ls
+  288  ls -l -t
+  289  which bash
+  290  cd
+  291  printenv
+  292  cd Desktop
+  293  printenv
+  294  echo $PATH
+  295  who
+  296  ps -aux
+  297  uname -s
+  298  uname -r
+  299  hostnamectl | grep kernel
+  300  hostnamectl |grep kernel
+  301  uname -a
+  302  uname -n
+  303  uname -r
+  304  uname -s
+  305  uname -a
+  306  uname -n
+  307  echo $PWD
+  308  cd dir
+  309  cd ..
+  310  cd -
+  311  history
+  312  .bash_history
+  313  echo $HISTSIZE
+  314  HISTSIZE=2000
+  315  echo $HISTSIZE
+  316  history
+Using up-arrow key we can run a particular command from the history list without typing that command.
+
+
+96) What are the different types of shell and where are they used and how do we use them?
+Bourne shell (sh) is regarded as the first UNIX shell
+Bourne-Again shell (bash) was designed to be compatible with the Bourne shell. It allows us to automatically recall previously used commands and edit them with help of arrow keys, unlike the Bourne shell.
+C shell (csh) was developed to include useful programming features like in-built support for arithmetic operations and a syntax similar to the C programming language.
+The Korn shell (ksh) it provides users with new functionalities. It allows in-built support for arithmetic operations while offereing interactive features which are similar to the C shell.
+The Z Shell (zsh) is a sh shell extension with tons of improvements for customization.
+
+
+98)  What is the difference between login shell and non-login shell?
+If the user first logs in into a terminal session, his shell session will be considered as a login shell.
+When the user who is working on this authenticated session starts a new shell session, a non-login shell session is launched. Notice here that no prior authentication is required when the child session is started.
+
+
+100) How do we start login shell and non-login shell?
+If the output is the name of our shell, prepended by a dash, then it is a login shell.
+A Non login shell is started by a program without a login. In this case, the program just passes the name of the shell executable
+
+
+102) What happens when you start a login shell (which files are read and used and Why)?
+When Bash is invoked as an interactive login shell, or as a non-interactive shell with the --login option, it first reads and executes commands from the file /etc/profile, if that file exists. After reading that file, it looks for ~/.bash_profile, ~/.bash_login, and ~/.profile, in that order, and reads and executes commands from the first one that exists and is readable.
+
+
+104) What happens when you start a non-login shell (Which files are read and used and Why)?
+When an interactive shell that is not a login shell is started, Bash reads and executes commands from ~/.bashrc, if that file exists. This may be inhibited by using the --norc option. The --rcfile file option will force Bash to read and execute commands from file instead of ~/.bashrc
+
+
+106) What are Shell Configuration Files, why do we need it?
+Shell configuration files are executed automatically when you log in and out of a shell. They initialize and configure a shell upon login and perform cleanup operations upon logout.
+To configure Bash to use our custom settings we need to configure various configuration files that are used.
+
+
+108) Explain the Order of file usage from the system/user's home directory when user logs in to the System.
+The root (administrative) user is the only user who has its home directory in a different location by default. The path of the root user is '/root/', where it has control under all the directories and files.There are multiple ways to access and return to the home directory. Some commands are very helpful for the directories such as cd, pwd, mkdir, pwd, ls, and rmdir. To access the home directory graphically, open the files application, and click on the Home option from the left side menu.
+
+
+110) What are Shell Variables, list major shell variables and what do they represent?
+A shell variable is a special variable that is set by the shell and is required by the shell in order to function correctly.
+name=pintu
+echo "My name is $name "
+
+
+112) How we see all our env variables?
+The printenv command helps us see all the environment variables.
+
+
+114) How we see all env variables in alphabetical order?
+get-childitem env:* 
+
+
+118) How do you create your own variable?
+We give a name to the variable, equalto sign and then provide the value for it (name=value)
+eg: name=Pintu
+
+
+120) How do you start a new bash shell?
+ctrl+alt+T
+
+
+122) Difference between Local/Shell variables to Global Variable
+Local/Shell variables are declared inside a function hwereas,  global variables are declared outside the function.
+
+
+124) Making a variable accessible from other the shell in the system.
+Create two shells. In one of the shell create a variable and export it using 'export <$variable_name>' and mention the other shell file name. Then, in other file use the variable <$variable_name>. In Terminal, execute first shell file.
+
+
+126) Show the real life use case of exporting a variable
+Consider two shells: hello.sh and heya.sh
+In hello.sh           In heya.sh
+msg="hello"        echo "The message is from other shell is $msg"
+export msg
+./heya.sh
+
+In Terminal
+prajaktas@prajaktas:~/Desktop$ ./hello.sh
+The message is from other shell is hello
+
+
+130) What is Globbing? Explain in depth with examples?
+Globbing is also known as path name expansion. To learn about file globbing first we need to know about wildcards.
+Wildcards pattern are the strings containing characters like '?', '[', '*'. It performs action on more than one file having same pattern or to find part of a phrase in a text file. Shell uses wildcards for file globbing.
+The asterisk (*) is interpreted as the sign to generate matching file names. It is placed at the end of a line. It matches the combination by any number of characters.
+You can also use question mark(?) sign in place of asterisk to generate matching file names. It is placed at the end of a line. It matches the combination by exactly one character.
+Square brackets( [] ) are also used to generate matching file names inside the brackets and the first subsequent. Order inside the square bracket doesn't matter. It matches the combination by exactly one character.
+
+
+132) List all entries with extension ".sh"
+prajaktas@prajaktas:~/Desktop$ find -type f \( -name "*.sh" \)
+./hello.sh
+./heya.sh
+./Shell_Scripting/assg1.sh
+./Shell_Scripting/assg8.sh
+./Shell_Scripting/assg16.sh
+./Shell_Scripting/assg9.sh
+./Shell_Scripting/assg14.sh
+./Shell_Scripting/assg15.sh
+./Shell_Scripting/assg11.sh
+./Shell_Scripting/assg21.sh
+./Shell_Scripting/assg2.sh
+./Shell_Scripting/assg22.sh
+./Shell_Scripting/assg4.sh
+./Shell_Scripting/assg7.sh
+./Shell_Scripting/assg3.sh
+./Shell_Scripting/assg10.sh
+./Shell_Scripting/assg5.sh
+./Shell_Scripting/assg12.sh
+./Shell_Scripting/assg13.sh
+./Shell_Scripting/assg18.sh
+./Shell_Scripting/assg6.sh
+./hi.sh
+
+
+134) List all entries with numbers in it.
+Using ls piped to grep -E (extended grep with additional regexp capabilities) to search for all filenames with only numeric characters:
+ls | grep -E '^[0-9]+$
+
+
+136) List all entries that starts with a character and ends with a number
+grep -E "^a.*n$" filename OR
+grep '^a.*e$' file
+This means: look for those lines starting (^) with a, then 0 or more characters and finally and e at the end of the line ($).
+  
+
+138) List all entries that name length more than 5 characters
+ls -d /tmp/???? OR find /tmp -type f -size 5c. OR
+find /tmp -type f -print| awk -F/ ' length($NF)  == 4 '
+What awk does:
+Using / as field separator,
+Finding filename $NF (last field)
+Computing length
+And check if value is 4, then print it.
+
+
+140) What is Quoting? and Why do we need it?
+Quoting is used to remove the special meaning of certain characters or words to the shell. Quoting can be used to disable special treatment for special characters, to prevent reserved words from being recognized as such, and to prevent parameter expansion.
+
+
+142) Write few(minimum 3) unique examples that shows, how a particular problem is solved using Quoting.
+$ echo \"2 \- 3 \= 5\" is a valid inequality.
+output: "2 - 3 = 5" is a valid inequality.
+$ echo "hi"
+output: hi
+$ echo \"hi\"
+output: "hi"
+
+144) How do you find a particular files/directories based on a particular search criteria?
+HINT:- look for commands -> locate, find and whereis
+The locate command in Linux is used to find the files by name. There is two most widely used file searching utilities accessible to users are called find and locate. The locate utility works better and faster than find command counterpart because instead of searching the file system when a file search is initiated, it would look through a database. 
+The find command in UNIX is a command line utility for walking a file hierarchy. It can be used to find files and directories and perform subsequent operations on them. It supports searching by file, folder, name, creation date, modification date, owner and permissions. By using the ‘-exec’ other UNIX commands can be executed on files or folders found.
+The whereis command in Linux is used to locate the binary, source, and manual page files for a command. This command searches for files in a restricted set of locations binary file directories, man page directories, and library directories. It is usually used to find executables of a program, its man pages and configuration files.
+
+
+146) Write major difference between locate, find and whereis?
+locate is used to scan the whole system quickly for something - you might use this when you have no idea where something is, or when you want to find all related files scattered across various unknown places.
+find is what you use when you want to search by particular criteria and also manipulate files.
+whereis command simply returns the location of the executables
+
+
+148) How Globbing is different from locate, find and whereis?
+Globbing is mainly used to match filenames or searching for content in a file. File globbing is the operation that recognizes these patterns and does the job of file path expansion.
+Whereas locate, find and whereis are used to find the files without specific directory.
+
+
+150) Explain the Linux File System.
+Linux File System or any file system generally is a layer that is under the operating system that handles the positioning of your data on the storage; without it, the system cannot know which file starts from where and ends where.
+
+
+152) Explain absolute and Relative Paths
+An absolute path is defined as specifying the location of a file or directory from the root directory(/). In other words,we can say that an absolute path is a complete path from start of actual file system from / directory.
+Relative path is defined as the path related to the present working directly(pwd).
+
+
+154) Archiving files using linux command, write a command to archive set of files from linux commands.
+An Archive file is a file that is composed of one or more files along with metadata. Archive files are used to collect multiple data files together into a single file for easier portability and storage, or simply to compress files to use less storage space. 
+‘tar’ stands for tape archive, is used to create Archive and extract the Archive files
+Syntax: 
+tar [options] [archive-file] [file or directory to be archived]
+Options: 
+-c : Creates Archive 
+-x : Extract the archive 
+-f : creates archive with given filename 
+-t : displays or lists files in archived file 
+-u : archives and adds to an existing archive file 
+-v : Displays Verbose Information 
+-A : Concatenates the archive files 
+-z : zip, tells tar command that creates tar file using gzip 
+-j : filter archive tar file using tbzip 
+-W : Verify a archive file 
+-r : update or add file or directory in already existed .tar file 
+
+$ tar cvf file.tar *.c
+
+
+156) Extract the archived files from the above step.
+$ tar xvf file.tar
+
+158) What are the different ways of creating a File in linux System? Write an example of each and the difference between them.
+i) cat file1 > file2
+   cat file2
+ii) touch file
+iii) nano file_1
+iv) echo ‘Creating file’ > tp.txt
+
+
+160) In how many ways we can delete the files from linux system? write an example of each and teh difference between them.
+i) rm filename
+ii) unlink file-name
+iii) rm file-name-*
+iv) rm {file-name-1} {file-name-2} {file-name-3} ... {file-name-N}

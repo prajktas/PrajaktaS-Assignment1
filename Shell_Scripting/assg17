@@ -1,0 +1,9 @@
+prajaktas@prajaktas:~/Desktop/Shell_Scripting$ ./assg17.sh
+Enter a file name to read: 
+assg16
+Text Name: prajaktas@prajaktas:~/Desktop/Shell_Scripting$ ./assg16.sh
+Text Name: Superhero 1
+Text Name: Superhero 2
+Text Name: Superhero 3
+Text Name: Superhero 4
+Text Name: File Was Read On: Monday 09 August 2021 10:06:21 PM IST

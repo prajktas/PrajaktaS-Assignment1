@@ -1,0 +1,31 @@
+prajaktas@prajaktas:~/Desktop/Shell_Scripting$ ./assg20.sh
+Directory and its contents
+We can change into the directory , and here are the contents
+total 104
+drwxr-xr-x 16 prajaktas prajaktas 4096 Aug  9 20:57 .
+drwxr-xr-x  3 root      root      4096 Aug  3 14:38 ..
+-rw-------  1 prajaktas prajaktas 5077 Aug  9 21:24 .bash_history
+-rw-r--r--  1 prajaktas prajaktas  220 Aug  3 14:38 .bash_logout
+-rwxrwxr-x  1 prajaktas prajaktas 3771 Aug  3 14:38 .bashrc
+drwx------ 14 prajaktas prajaktas 4096 Aug  9 14:33 .cache
+drwx------ 13 prajaktas prajaktas 4096 Aug  9 21:33 .config
+drwxr-xr-x  4 prajaktas prajaktas 4096 Aug  9 21:32 Desktop
+drwxr-xr-x  2 prajaktas prajaktas 4096 Aug  5 09:14 Documents
+drwxr-xr-x  2 prajaktas prajaktas 4096 Aug  3 14:43 Downloads
+drwx------  3 prajaktas prajaktas 4096 Aug  9 11:31 .gnupg
+drwxr-xr-x  3 prajaktas prajaktas 4096 Aug  3 14:43 .local
+drwx------  5 prajaktas prajaktas 4096 Aug  3 17:06 .mozilla
+drwxr-xr-x  2 prajaktas prajaktas 4096 Aug  3 14:43 Music
+drwxr-xr-x  2 prajaktas prajaktas 4096 Aug  3 14:43 Pictures
+-rw-r--r--  1 prajaktas prajaktas  807 Aug  3 14:38 .profile
+drwxr-xr-x  2 prajaktas prajaktas 4096 Aug  3 14:43 Public
+drwx------  2 prajaktas prajaktas 4096 Aug  3 14:44 .ssh
+-rw-r--r--  1 prajaktas prajaktas    0 Aug  3 14:50 .sudo_as_admin_successful
+drwxr-xr-x  2 prajaktas prajaktas 4096 Aug  3 14:43 Templates
+-rw-r-----  1 prajaktas prajaktas    5 Aug  9 20:56 .vboxclient-clipboard.pid
+-rw-r-----  1 prajaktas prajaktas    5 Aug  9 20:56 .vboxclient-display-svga-x11.pid
+-rw-r-----  1 prajaktas prajaktas    5 Aug  9 20:56 .vboxclient-draganddrop.pid
+-rw-r-----  1 prajaktas prajaktas    5 Aug  9 20:56 .vboxclient-seamless.pid
+drwxr-xr-x  2 prajaktas prajaktas 4096 Aug  3 14:43 Videos
+-rw-------  1 prajaktas prajaktas  659 Aug  9 15:52 .viminfo
+

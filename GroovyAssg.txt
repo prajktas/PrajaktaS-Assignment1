@@ -1,0 +1,539 @@
+1.) Number Data Types
+a. What data type is the number 2? How about 20? 200? Keep adding zeros and watch the data type change until it reaches BigInteger. Then do the same for 2.0.
+b. Declare a variable x of type def and assign it the sum of 1 and 1.5. What is the resulting data type?
+c. What do you get when you divide 5 by 2? What is the resulting data type? If you wanted to do integer division (no remainder), what method would you call?
+CODE:
+package Assignment
+
+//a(1)
+def num1=2
+println "data type of 2 is "+ num1.getClass().getName()
+num1=20
+println "data type of 20 is "+ num1.getClass().getName()
+num1=200
+println "data type of 200 is "+ num1.getClass().getName()
+num1=2000
+println "data type of 2000 is "+ num1.getClass().getName()
+num1=20000
+println "data type of 20000 is "+ num1.getClass().getName()
+num1=200000
+println "data type of 200000 is "+ num1.getClass().getName()
+num1=2000000
+println "data type of 2000000 is "+ num1.getClass().getName()
+num1=20000000
+println "data type of 20000000 is "+ num1.getClass().getName()
+num1=200000000
+println "data type of 200000000 is "+ num1.getClass().getName()
+num1=200000000
+println "data type of 2000000000 is "+ num1.getClass().getName()
+num1=2000000000
+println "data type of 20000000000 is "+ num1.getClass().getName()
+num1=20000000000
+println "data type of 200000000000 is "+ num1.getClass().getName()
+num1=200000000000
+println "data type of 2000000000000 is "+ num1.getClass().getName()
+num1=2000000000000
+println "data type of 20000000000000 is "+ num1.getClass().getName()
+num1=20000000000000
+println "data type of 200000000000000 is "+ num1.getClass().getName()
+num1=200000000000000
+println "data type of 2000000000000000 is "+ num1.getClass().getName()
+num1=2000000000000000
+println "data type of 20000000000000000 is "+ num1.getClass().getName()
+num1=20000000000000000
+println "data type of 200000000000000000 is "+ num1.getClass().getName()
+num1=200000000000000000
+println "data type of 2000000000000000000 is "+ num1.getClass().getName()
+num1=2000000000000000000
+println "data type of 20000000000000000000 is "+ num1.getClass().getName()
+num1=20000000000000000000
+println "data type of 200000000000000000000 is "+ num1.getClass().getName()
+
+//a(2)
+def num2=2.0
+println "data type of 2.0 is "+ num2.getClass().getName()
+num2=2.00
+println "data type of 2.00 is "+ num2.getClass().getName()
+num2=2.000
+println "data type of 2.000 is "+ num2.getClass().getName()
+num2=2.0000000000
+println "data type of 2.0000000000 is "+ num2.getClass().getName()
+num2=2.0000000000000000000
+println "data type of 2.00000000000000000000 is "+ num2.getClass().getName()
+
+//b
+def x=1+1.5
+println x
+println x.getClass().getName()
+
+//c
+def y=5/2
+println y
+println y.getClass().getName()
+println 5.intdiv(2)
+
+OUTPUT:
+data type of 2 is java.lang.Integer
+data type of 20 is java.lang.Integer
+data type of 200 is java.lang.Integer
+data type of 2000 is java.lang.Integer
+data type of 20000 is java.lang.Integer
+data type of 200000 is java.lang.Integer
+data type of 2000000 is java.lang.Integer
+data type of 20000000 is java.lang.Integer
+data type of 200000000 is java.lang.Integer
+data type of 2000000000 is java.lang.Integer
+data type of 20000000000 is java.lang.Integer
+data type of 200000000000 is java.lang.Long
+data type of 2000000000000 is java.lang.Long
+data type of 20000000000000 is java.lang.Long
+data type of 200000000000000 is java.lang.Long
+data type of 2000000000000000 is java.lang.Long
+data type of 20000000000000000 is java.lang.Long
+data type of 200000000000000000 is java.lang.Long
+data type of 2000000000000000000 is java.lang.Long
+data type of 20000000000000000000 is java.lang.Long
+data type of 200000000000000000000 is java.math.BigInteger
+data type of 2.0 is java.math.BigDecimal
+data type of 2.00 is java.math.BigDecimal
+data type of 2.000 is java.math.BigDecimal
+data type of 2.0000000000 is java.math.BigDecimal
+data type of 2.00000000000000000000 is java.math.BigDecimal
+2.5
+java.math.BigDecimal
+2.5
+java.math.BigDecimal
+2
+
+
+2.) Wrapper Classes
+From the associated wrapper classes, find the min and max values for the Java primitives: byte, short, int, long, float, double.
+CODE:
+package Assignment
+
+//byte
+println "=========For BYTES==============="
+println Byte.MIN_VALUE
+println Byte.MAX_VALUE
+println " "
+
+//short
+println "==========For SHORT=============="
+println Short.MIN_VALUE
+println Short.MAX_VALUE
+println " "
+
+//int
+println "============For INT=============="
+println Integer.MIN_VALUE
+println Integer.MAX_VALUE
+println " "
+
+//long
+println "===========For LONG=============="
+println Long.MIN_VALUE
+println Long.MAX_VALUE
+println " "
+
+//float
+println "============For FLOAT============"
+println Float.MIN_VALUE
+println Float.MAX_VALUE
+println " "
+
+//double
+println "===========For DOUBLE============="
+println Double.MIN_VALUE
+println Double.MAX_VALUE
+
+OUTPUT:
+=========For BYTES===============
+-128
+127
+ 
+==========For SHORT==============
+-32768
+32767
+ 
+============For INT==============
+-2147483648
+2147483647
+ 
+===========For LONG==============
+-9223372036854775808
+9223372036854775807
+ 
+============For FLOAT============
+1.4E-45
+3.4028235E38
+ 
+===========For DOUBLE=============
+4.9E-324
+1.7976931348623157E308
+
+
+3.) 2s Complement
+Create a byte variable with its maximum value. What do you get when you add 1 to it?
+CODE:
+package Assignment
+
+println Byte.MAX_VALUE
+byte b=127
+println b+1
+
+OUTPUT:
+127
+128
+
+
+4.) Strings and GroovyStrings
+a. How many characters are in the string "Hello, Groovy!"?
+b. Define a string variable containing a name. Print a hello statement with your name using string 
+concatenation, then using a Groovy string.
+c. Demonstrate that "racecar" is a palindrome by comparing it to its reverse. Do the same with "Bob", 
+removing case sensitivity first.
+d. Define a string variable containing the sentence, "Hello, World. How are you?". Split the sentence into 
+an array using the split method. Count the number of words. Do the same using 
+the tokenize method.
+e. Using the same sentence, use array notation (square brackets) to print the substring "World".
+f. Use array notation to print the last word, but reversed.
+CODE:
+package Assignment
+
+//a
+def str="Hello, Groovy!"
+println str.length()
+
+//b
+def name="Rags"
+println "Hello, my name is ".concat(name)
+println "Hello, my name is ${name}"
+
+//c
+def str1="racecar"
+str2= str1.reverse()
+println "$str2 is reverse of $str1. $str1 is a palindrome."
+
+def str3="Bob"
+str4 = str3.toLowerCase().reverse()                             //def str4="Bob".equalsIgnoreCase("bob")
+println "Reverse is $str4 . $str3 is a palindrome"              //println str4 
+
+//d.split
+def string="Hello, World. How are you?"
+spl = string.split(/\W/)
+println spl
+size= spl.size()
+space= spl.count("")
+wordcount=size-space
+//println "The total number of words are size-spaces $size-$space  = "+wordcount
+println "Wordcount = "+wordcount
+
+//d.tokenize
+st=string.tokenize()
+println st
+println st.size()
+
+//e
+println string[7..11]
+
+//f
+println string[24..22]
+
+OUTPUT:
+14
+Hello, my name is Rags
+Hello, my name is Rags
+racecar is reverse of racecar. racecar is a palindrome.
+Reverse is bob . Bob is a palindrome
+[Hello, , World, , How, are, you]
+Wordcount = 5
+[Hello,, World., How, are, you?]
+5
+World
+uoy
+
+
+5.) Prime Numbers
+Write a method called isPrime that takes an integer argument and returns a boolean. Determine 
+whether the number is prime by dividing it by all numbers from 2 up to one less than the number.That limit is too high, of course. How high do you have to check to be sure whether you've gone far enough?
+CODE:
+package Assignment
+
+class isprime {
+	static boolean isPrime(int n)
+	{
+		if(n<=1)
+			return false;
+		else if (n==2)
+			return true;
+		else if (n%2 == 0 )
+			return false;
+			
+		for (int i=3; i<=Math.sqrt(n); i+=2) {
+			if (n%i ==0)
+				return false;
+				
+		}
+		return true;
+	}
+	
+	static void main(args) {
+		if (isPrime(7))
+			System.out.println("true")
+		else 
+			System.out.println("false")
+	}
+}
+
+OUTPUT:
+true
+
+
+6.) Sorting Strings
+Create a list of strings. Sort them alphabetically. Sort them by length. Sort them by length in descending order.
+Advanced: Sort by length, then sort equal length strings alphabetically
+CODE:
+package Assignment
+
+def str=["one","twoooo","threeeee"]
+println str.sort()
+println str.sort { it.size() }   //sorting by length 
+println str.sort { -it.size() }  //sorting by length in descending order
+
+
+//Advanced
+def st=["john","mike","jack","michael"]
+println st.sort { it.size() }
+println st.sort()
+
+OUTPUT:
+[one, threeeee, twoooo]
+[one, twoooo, threeeee]
+[threeeee, twoooo, one]
+[john, mike, jack, michael]
+[jack, john, michael, mike]
+
+
+7.) Processing a list of numbers
+Create a list of numbers. Add them together. First double each number, then add them up. Compute their average.
+CODE:
+package Assignment
+
+def nums=[1,2,3,5,10,20]
+println nums.sum()
+
+db=nums.collect{ item -> item*2 }
+println db
+println db.sum()
+
+def avg = db.sum()/ db.size()
+println avg
+
+OUTPUT:
+41
+[2, 4, 6, 10, 20, 40]
+82
+13.6666666667
+
+
+8.) Reading a web page
+Using the Groovy JDK, access your home page and display the source code. Print the length of each line 
+of the home page.
+CODE:
+package Assignment
+
+String filepath = "C:\\Users\\Asus\\eclipse-workspace\\FirstGP\\src\\Assignment\\samplefile"
+File myfile = new File(filepath)
+println myfile.text
+println "============"
+for (line in myfile) {
+	println line.length()
+}
+
+OUTPUT:
+hello
+
+
+hii
+
+
+heya
+
+
+hey
+
+
+
+bye
+============
+5
+0
+0
+3
+0
+0
+4
+0
+0
+3
+0
+0
+0
+3
+
+
+9.) Closures as a filter
+Create a list of numbers. Print all elements greater than zero.
+CODE:
+package Assignment
+
+def myList=[1,5,-1,0,50,-10,6,40]
+println myList.findAll{ item -> item>0 } 
+
+OUTPUT:
+[1, 5, 50, 6, 40]
+
+
+10.) Multi-line strings
+Make a multi-line string. Compute the number of vowels on each line.
+CODE:
+package Assignment
+
+def str='''This is my assignment.
+         The name of this assignment 
+		 is multiLineString'''
+int count=0
+for (vowel in str) {
+	if(vowel== 'a' || vowel == 'e' || vowel == 'i' || vowel == 'o' || vowel == 'u' || vowel == 'A' || vowel == 'E' || vowel == 'I' || vowel == 'O' || vowel == 'U' ) {
+		count++
+	}
+}
+println count
+
+OUTPUT:
+19
+
+
+11.) Padded binary output
+Print the numbers from 0 to 15 in binary (use Java's Integer.toBinaryString() method). Use a 
+method in String from the Groovy JDK to make all the output values have four digits.
+CODE:
+package Assignment
+
+for (i in (0..15)) {
+	System.out.println(Integer.toBinaryString(i))
+}
+
+OUTPUT:
+0
+1
+10
+11
+100
+101
+110
+111
+1000
+1001
+1010
+1011
+1100
+1101
+1110
+1111
+
+
+12.) Encode and decode
+i.Create two strings, one for a username and one for a password. Concatenate them together, 
+separated by a colon. Use a method from the Groovy JDK to convert the resulting String to a byte array. Then use the encodeBase64 method on byte array to create an encoded string.
+ii.Decode the string by using the decodeBase64 method, and using the result as an argument to the String constructor. Use the split method to return the original username and password.
+CODE:
+package Assignment
+
+def uname="Richie"
+def pword="Rich123"
+c = "$uname : $pword"                 //concatenating username and password using colon
+println c
+
+byte[] byteArray=c.getBytes()         //converting string to bytes array
+println byteArray
+
+encoded=Base64.getEncoder().encodeToString(byteArray)
+println encoded
+
+decoded=Base64.getDecoder().decode(encoded)
+println decoded
+
+byte[] bytes=decoded
+
+println (new String(bytes))
+
+OUTPUT:
+Richie : Rich123
+[82, 105, 99, 104, 105, 101, 32, 58, 32, 82, 105, 99, 104, 49, 50, 51]
+UmljaGllIDogUmljaDEyMw==
+[82, 105, 99, 104, 105, 101, 32, 58, 32, 82, 105, 99, 104, 49, 50, 51]
+Richie : Rich123
+
+
+13.) Sorting a list
+Create a class called Course, with a String attribute called name and an int attribute called days. Create a 
+list of four course instances, where at least two have the same number of days. Sort the list by number of 
+days. Then, sort the list by days, but when the days are equal, sort by name.
+CODE:
+package Assignment
+
+class Course {
+	//attributes
+	String name
+	int days
+	
+	//functions
+	def coursedetails(String n, int d) {
+		def name=n
+		def days=d
+		def list = [name:n , days:d]
+//		print "The name of the course is $name is of $days days"
+	}
+	
+
+	static void main(args) {
+		Course course1 = new Course()
+//		course1.name="Git"
+//		course1.days=5
+		
+		Course course2 = new Course()
+//		course2.name="GitHub"
+//		course2.days=4
+
+		Course course3 = new Course()
+//		course3.name="Excel"		
+//		course3.days=5
+		
+		Course course4 = new Course()
+//		course4.name="Networking"
+//		course4.days=3
+		
+//		course1.coursedetails()
+//		course2.coursedetails()
+//		course3.coursedetails()
+//		course4.coursedetails()
+		
+		def same = [ course1.coursedetails("Git",5) , course2.coursedetails("GitHub",4) , course3.coursedetails("Excel",5) , course4.coursedetails("Networking",3) ]
+		
+		def sort = same.sort { a, b -> b["days"] <=> a["days"] ?: a["name"] <=> b["name"] }
+		sort.each { println it }
+		
+	}
+}
+
+OUTPUT:
+[name:Excel, days:5]
+[name:Git, days:5]
+[name:GitHub, days:4]
+[name:Networking, days:3]
+
+
+
+
+

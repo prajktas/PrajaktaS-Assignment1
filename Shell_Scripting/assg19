@@ -1,0 +1,13 @@
+prajaktas@prajaktas:~/Desktop/Shell_Scripting$ ./assg19.sh
+MAIN MENU
+=========
+1) Choice One
+2) Choice Two
+3) Choice Three
+Q) Quit/Exit
+
+^C - Please Press Q to Exit..
+^Z - Please Press Q to Exit..
+q
+prajaktas@prajaktas:~/Desktop/Shell_Scripting$ 
+
