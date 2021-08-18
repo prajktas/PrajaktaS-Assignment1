@@ -1,0 +1,31 @@
+12.) Encode and decode
+i.Create two strings, one for a username and one for a password. Concatenate them together, 
+separated by a colon. Use a method from the Groovy JDK to convert the resulting String to a byte array. Then use the encodeBase64 method on byte array to create an encoded string.
+ii.Decode the string by using the decodeBase64 method, and using the result as an argument to the String constructor. Use the split method to return the original username and password.
+CODE:
+package Assignment
+
+def uname="Richie"
+def pword="Rich123"
+c = "$uname : $pword"                 //concatenating username and password using colon
+println c
+
+byte[] byteArray=c.getBytes()         //converting string to bytes array
+println byteArray
+
+encoded=Base64.getEncoder().encodeToString(byteArray)
+println encoded
+
+decoded=Base64.getDecoder().decode(encoded)
+println decoded
+
+byte[] bytes=decoded
+
+println (new String(bytes))
+
+OUTPUT:
+Richie : Rich123
+[82, 105, 99, 104, 105, 101, 32, 58, 32, 82, 105, 99, 104, 49, 50, 51]
+UmljaGllIDogUmljaDEyMw==
+[82, 105, 99, 104, 105, 101, 32, 58, 32, 82, 105, 99, 104, 49, 50, 51]
+Richie : Rich123

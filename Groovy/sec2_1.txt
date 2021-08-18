@@ -1,0 +1,23 @@
+6.) Sorting Strings
+Create a list of strings. Sort them alphabetically. Sort them by length. Sort them by length in descending order.
+Advanced: Sort by length, then sort equal length strings alphabetically
+CODE:
+package Assignment
+
+def str=["one","twoooo","threeeee"]
+println str.sort()
+println str.sort { it.size() }   //sorting by length 
+println str.sort { -it.size() }  //sorting by length in descending order
+
+
+//Advanced
+def st=["john","mike","jack","michael"]
+println st.sort { it.size() }
+println st.sort()
+
+OUTPUT:
+[one, threeeee, twoooo]
+[one, twoooo, threeeee]
+[threeeee, twoooo, one]
+[john, mike, jack, michael]
+[jack, john, michael, mike]

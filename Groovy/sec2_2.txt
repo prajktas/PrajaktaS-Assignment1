@@ -1,0 +1,20 @@
+7.) Processing a list of numbers
+Create a list of numbers. Add them together. First double each number, then add them up. Compute their average.
+CODE:
+package Assignment
+
+def nums=[1,2,3,5,10,20]
+println nums.sum()
+
+db=nums.collect{ item -> item*2 }
+println db
+println db.sum()
+
+def avg = db.sum()/ db.size()
+println avg
+
+OUTPUT:
+41
+[2, 4, 6, 10, 20, 40]
+82
+13.6666666667

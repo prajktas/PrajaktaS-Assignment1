@@ -1,0 +1,44 @@
+8.) Reading a web page
+Using the Groovy JDK, access your home page and display the source code. Print the length of each line 
+of the home page.
+CODE:
+package Assignment
+
+String filepath = "C:\\Users\\Asus\\eclipse-workspace\\FirstGP\\src\\Assignment\\samplefile"
+File myfile = new File(filepath)
+println myfile.text
+println "============"
+for (line in myfile) {
+	println line.length()
+}
+
+OUTPUT:
+hello
+
+
+hii
+
+
+heya
+
+
+hey
+
+
+
+bye
+============
+5
+0
+0
+3
+0
+0
+4
+0
+0
+3
+0
+0
+0
+3

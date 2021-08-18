@@ -1,0 +1,65 @@
+4.) Strings and GroovyStrings
+a. How many characters are in the string "Hello, Groovy!"?
+b. Define a string variable containing a name. Print a hello statement with your name using string 
+concatenation, then using a Groovy string.
+c. Demonstrate that "racecar" is a palindrome by comparing it to its reverse. Do the same with "Bob", 
+removing case sensitivity first.
+d. Define a string variable containing the sentence, "Hello, World. How are you?". Split the sentence into 
+an array using the split method. Count the number of words. Do the same using 
+the tokenize method.
+e. Using the same sentence, use array notation (square brackets) to print the substring "World".
+f. Use array notation to print the last word, but reversed.
+CODE:
+package Assignment
+
+//a
+def str="Hello, Groovy!"
+println str.length()
+
+//b
+def name="Rags"
+println "Hello, my name is ".concat(name)
+println "Hello, my name is ${name}"
+
+//c
+def str1="racecar"
+str2= str1.reverse()
+println "$str2 is reverse of $str1. $str1 is a palindrome."
+
+def str3="Bob"
+str4 = str3.toLowerCase().reverse()                             //def str4="Bob".equalsIgnoreCase("bob")
+println "Reverse is $str4 . $str3 is a palindrome"              //println str4 
+
+//d.split
+def string="Hello, World. How are you?"
+spl = string.split(/\W/)
+println spl
+size= spl.size()
+space= spl.count("")
+wordcount=size-space
+//println "The total number of words are size-spaces $size-$space  = "+wordcount
+println "Wordcount = "+wordcount
+
+//d.tokenize
+st=string.tokenize()
+println st
+println st.size()
+
+//e
+println string[7..11]
+
+//f
+println string[24..22]
+
+OUTPUT:
+14
+Hello, my name is Rags
+Hello, my name is Rags
+racecar is reverse of racecar. racecar is a palindrome.
+Reverse is bob . Bob is a palindrome
+[Hello, , World, , How, are, you]
+Wordcount = 5
+[Hello,, World., How, are, you?]
+5
+World
+uoy

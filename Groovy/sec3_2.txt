@@ -1,0 +1,56 @@
+13.) Sorting a list
+Create a class called Course, with a String attribute called name and an int attribute called days. Create a 
+list of four course instances, where at least two have the same number of days. Sort the list by number of 
+days. Then, sort the list by days, but when the days are equal, sort by name.
+CODE:
+package Assignment
+
+class Course {
+	//attributes
+	String name
+	int days
+	
+	//functions
+	def coursedetails(String n, int d) {
+		def name=n
+		def days=d
+		def list = [name:n , days:d]
+//		print "The name of the course is $name is of $days days"
+	}
+	
+
+	static void main(args) {
+		Course course1 = new Course()
+//		course1.name="Git"
+//		course1.days=5
+		
+		Course course2 = new Course()
+//		course2.name="GitHub"
+//		course2.days=4
+
+		Course course3 = new Course()
+//		course3.name="Excel"		
+//		course3.days=5
+		
+		Course course4 = new Course()
+//		course4.name="Networking"
+//		course4.days=3
+		
+//		course1.coursedetails()
+//		course2.coursedetails()
+//		course3.coursedetails()
+//		course4.coursedetails()
+		
+		def same = [ course1.coursedetails("Git",5) , course2.coursedetails("GitHub",4) , course3.coursedetails("Excel",5) , course4.coursedetails("Networking",3) ]
+		
+		def sort = same.sort { a, b -> b["days"] <=> a["days"] ?: a["name"] <=> b["name"] }
+		sort.each { println it }
+		
+	}
+}
+
+OUTPUT:
+[name:Excel, days:5]
+[name:Git, days:5]
+[name:GitHub, days:4]
+[name:Networking, days:3]

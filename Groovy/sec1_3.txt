@@ -1,0 +1,12 @@
+3.) 2s Complement
+Create a byte variable with its maximum value. What do you get when you add 1 to it?
+CODE:
+package Assignment
+
+println Byte.MAX_VALUE
+byte b=127
+println b+1
+
+OUTPUT:
+127
+128

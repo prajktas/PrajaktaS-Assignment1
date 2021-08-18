@@ -1,0 +1,64 @@
+2.) Wrapper Classes
+From the associated wrapper classes, find the min and max values for the Java primitives: byte, short, int, long, float, double.
+CODE:
+package Assignment
+
+//byte
+println "=========For BYTES==============="
+println Byte.MIN_VALUE
+println Byte.MAX_VALUE
+println " "
+
+//short
+println "==========For SHORT=============="
+println Short.MIN_VALUE
+println Short.MAX_VALUE
+println " "
+
+//int
+println "============For INT=============="
+println Integer.MIN_VALUE
+println Integer.MAX_VALUE
+println " "
+
+//long
+println "===========For LONG=============="
+println Long.MIN_VALUE
+println Long.MAX_VALUE
+println " "
+
+//float
+println "============For FLOAT============"
+println Float.MIN_VALUE
+println Float.MAX_VALUE
+println " "
+
+//double
+println "===========For DOUBLE============="
+println Double.MIN_VALUE
+println Double.MAX_VALUE
+
+OUTPUT:
+=========For BYTES===============
+-128
+127
+ 
+==========For SHORT==============
+-32768
+32767
+ 
+============For INT==============
+-2147483648
+2147483647
+ 
+===========For LONG==============
+-9223372036854775808
+9223372036854775807
+ 
+============For FLOAT============
+1.4E-45
+3.4028235E38
+ 
+===========For DOUBLE=============
+4.9E-324
+1.7976931348623157E308

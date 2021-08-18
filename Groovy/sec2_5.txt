@@ -1,0 +1,18 @@
+10.) Multi-line strings
+Make a multi-line string. Compute the number of vowels on each line.
+CODE:
+package Assignment
+
+def str='''This is my assignment.
+         The name of this assignment 
+		 is multiLineString'''
+int count=0
+for (vowel in str) {
+	if(vowel== 'a' || vowel == 'e' || vowel == 'i' || vowel == 'o' || vowel == 'u' || vowel == 'A' || vowel == 'E' || vowel == 'I' || vowel == 'O' || vowel == 'U' ) {
+		count++
+	}
+}
+println count
+
+OUTPUT:
+19

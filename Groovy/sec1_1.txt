@@ -1,0 +1,106 @@
+1.) Number Data Types
+a. What data type is the number 2? How about 20? 200? Keep adding zeros and watch the data type change until it reaches BigInteger. Then do the same for 2.0.
+b. Declare a variable x of type def and assign it the sum of 1 and 1.5. What is the resulting data type?
+c. What do you get when you divide 5 by 2? What is the resulting data type? If you wanted to do integer division (no remainder), what method would you call?
+CODE:
+package Assignment
+
+//a(1)
+def num1=2
+println "data type of 2 is "+ num1.getClass().getName()
+num1=20
+println "data type of 20 is "+ num1.getClass().getName()
+num1=200
+println "data type of 200 is "+ num1.getClass().getName()
+num1=2000
+println "data type of 2000 is "+ num1.getClass().getName()
+num1=20000
+println "data type of 20000 is "+ num1.getClass().getName()
+num1=200000
+println "data type of 200000 is "+ num1.getClass().getName()
+num1=2000000
+println "data type of 2000000 is "+ num1.getClass().getName()
+num1=20000000
+println "data type of 20000000 is "+ num1.getClass().getName()
+num1=200000000
+println "data type of 200000000 is "+ num1.getClass().getName()
+num1=200000000
+println "data type of 2000000000 is "+ num1.getClass().getName()
+num1=2000000000
+println "data type of 20000000000 is "+ num1.getClass().getName()
+num1=20000000000
+println "data type of 200000000000 is "+ num1.getClass().getName()
+num1=200000000000
+println "data type of 2000000000000 is "+ num1.getClass().getName()
+num1=2000000000000
+println "data type of 20000000000000 is "+ num1.getClass().getName()
+num1=20000000000000
+println "data type of 200000000000000 is "+ num1.getClass().getName()
+num1=200000000000000
+println "data type of 2000000000000000 is "+ num1.getClass().getName()
+num1=2000000000000000
+println "data type of 20000000000000000 is "+ num1.getClass().getName()
+num1=20000000000000000
+println "data type of 200000000000000000 is "+ num1.getClass().getName()
+num1=200000000000000000
+println "data type of 2000000000000000000 is "+ num1.getClass().getName()
+num1=2000000000000000000
+println "data type of 20000000000000000000 is "+ num1.getClass().getName()
+num1=20000000000000000000
+println "data type of 200000000000000000000 is "+ num1.getClass().getName()
+
+//a(2)
+def num2=2.0
+println "data type of 2.0 is "+ num2.getClass().getName()
+num2=2.00
+println "data type of 2.00 is "+ num2.getClass().getName()
+num2=2.000
+println "data type of 2.000 is "+ num2.getClass().getName()
+num2=2.0000000000
+println "data type of 2.0000000000 is "+ num2.getClass().getName()
+num2=2.0000000000000000000
+println "data type of 2.00000000000000000000 is "+ num2.getClass().getName()
+
+//b
+def x=1+1.5
+println x
+println x.getClass().getName()
+
+//c
+def y=5/2
+println y
+println y.getClass().getName()
+println 5.intdiv(2)
+
+OUTPUT:
+data type of 2 is java.lang.Integer
+data type of 20 is java.lang.Integer
+data type of 200 is java.lang.Integer
+data type of 2000 is java.lang.Integer
+data type of 20000 is java.lang.Integer
+data type of 200000 is java.lang.Integer
+data type of 2000000 is java.lang.Integer
+data type of 20000000 is java.lang.Integer
+data type of 200000000 is java.lang.Integer
+data type of 2000000000 is java.lang.Integer
+data type of 20000000000 is java.lang.Integer
+data type of 200000000000 is java.lang.Long
+data type of 2000000000000 is java.lang.Long
+data type of 20000000000000 is java.lang.Long
+data type of 200000000000000 is java.lang.Long
+data type of 2000000000000000 is java.lang.Long
+data type of 20000000000000000 is java.lang.Long
+data type of 200000000000000000 is java.lang.Long
+data type of 2000000000000000000 is java.lang.Long
+data type of 20000000000000000000 is java.lang.Long
+data type of 200000000000000000000 is java.math.BigInteger
+data type of 2.0 is java.math.BigDecimal
+data type of 2.00 is java.math.BigDecimal
+data type of 2.000 is java.math.BigDecimal
+data type of 2.0000000000 is java.math.BigDecimal
+data type of 2.00000000000000000000 is java.math.BigDecimal
+2.5
+java.math.BigDecimal
+2.5
+java.math.BigDecimal
+2
