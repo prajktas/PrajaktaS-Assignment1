@@ -1,0 +1,152 @@
+ASSIGNMENT-1
+
+Q1]
+echo " Enter the principal value: "
+read p
+echo " Enter the rate of interest:"
+read r
+echo " Enter the time period:"
+read t
+s=`expr $p \* $t \* $r / 100`
+echo " The simple interest is "
+echo $s
+---------------
+ubuntuu@ubuntuu:~/Desktop$ ./a1q1.sh
+ Enter the principal value: 
+3000
+ Enter the rate of interest:
+4
+ Enter the time period:
+2
+ The simple interest is 
+240
+
+Q2]
+echo -e "Enter the basic salary: \c"
+read basic_sal
+if [ $basic_sal -ge 0 ]
+then
+  basic=$(expr 1.0*"$basic_sal" | bc)
+  dp=$(expr 0.5*"$basic"| bc)
+  temp=$(expr "$basic"+"$dp" | bc)
+  da=$(expr 0.35*"$temp" | bc)
+  hra=$(expr 0.08*"$temp" | bc)
+  ma=$(expr 0.03*"$temp" | bc)
+  pf=$(expr 0.1*"$temp" | bc)
+  salary=$(expr "$basic"+"$dp"+"$da"+"$hra"+"$ma"-" $pf" | bc)
+ 
+  echo "Your Basic Salary: $basic "
+  echo "Your DP: $dp "
+  echo "Your DA: $da"
+  echo "Your HRA: $hra"
+  echo "Your MA: $ma"
+  echo "Your PF: $pf"
+  #echo " ------------"
+  #echo "Your Net Salary is  Rs. $salary "
+else
+  echo "Please enter a valid Basic Salary "
+fi 
+---------------
+ubuntuu@ubuntuu:~/Desktop$ ./a1q2.sh
+Enter the basic salary: 30000
+Your Basic Salary: 30000.0 
+Your DP: 15000.0 
+Your DA: 15750.00
+Your HRA: 3600.00
+Your MA: 1350.00
+Your PF: 4500.0
+
+Q3]
+echo "Enter Size(N)"
+read N
+i=1
+sum=0
+echo "Enter Numbers"
+while [ $i -le $N ]
+do
+  read num              
+  sum=$((sum + num))     
+  i=$((i + 1))
+done
+avg=$(echo $sum / $N | bc -l)
+echo $avg
+---------------
+ubuntuu@ubuntuu:~/Desktop$ ./a1q3.sh
+Enter Size(N)
+5
+Enter Numbers
+2
+4
+8
+9
+10
+6.60000000000000000000
+
+Q4]
+echo "Enter the number of terms to be added: "
+read n
+sum=0
+for (( i=1; i<=n; i++ ))
+do
+  sum=$(( sum+i ))
+done
+echo "Sum is $sum"
+---------------
+ubuntuu@ubuntuu:~/Desktop$ ./a1q4.sh
+Enter the number of terms to be added: 
+5
+Sum is 15
+
+Q5]
+echo "Enter Two numbers : "
+read a
+read b
+
+echo "Enter Choice :"
+echo "1. Addition"
+echo "2. Subtraction"
+echo "3. Multiplication"
+echo "4. Division"
+read ch
+
+case $ch in
+1)res=`echo $a + $b | bc` ;;
+2)res=`echo $a - $b | bc` ;;
+3)res=`echo $a \* $b | bc` ;;
+4)res=`echo "scale=2; $a / $b" | bc` ;;
+esac
+echo "Result : $res"
+---------------
+ubuntuu@ubuntuu:~/Desktop$ ./a1q5.sh
+Enter Two numbers : 
+4
+5
+Enter Choice :
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+1
+Result : 9
+ubuntuu@ubuntuu:~/Desktop$ ./a1q5.sh
+Enter Two numbers : 
+4
+5
+Enter Choice :
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+3
+Result : 20
+ubuntuu@ubuntuu:~/Desktop$ ./a1q5.sh
+Enter Two numbers : 
+4
+5
+Enter Choice :
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+4
+Result : .80

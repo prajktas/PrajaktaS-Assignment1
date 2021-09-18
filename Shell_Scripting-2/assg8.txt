@@ -1,0 +1,158 @@
+ASSIGNMENT-8
+
+Q1]
+echo "The name of all files having all permissions :"
+for file in $Desktop./*
+do
+if [ -f $file ]
+then
+if [ -r $file -a -w $file -a -x $file ]
+then
+ls -l $file
+fi
+fi
+done
+---------------
+ubuntuu@ubuntuu:~/Desktop$ ./a8q1.sh
+The name of all files having all permissions :
+-rwxrwxr-x 1 ubuntuu ubuntuu 194 Sep  6 12:55 ./a1q1.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 642 Sep  6 12:00 ./a1q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 197 Sep 18 13:23 ./a1q3.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 133 Sep  6 12:45 ./a1q4.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 325 Sep  6 12:58 ./a1q5.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 152 Sep  6 16:36 ./a2q1.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 456 Sep  6 18:38 ./a2q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 228 Sep  6 19:07 ./a2q3.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 153 Sep  6 18:23 ./a2q5.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 287 Sep  1 12:28 ./a3q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 339 Sep  1 01:42 ./a3q3.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 144 Sep  1 00:56 ./a3q4.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 900 Sep  2 22:43 ./a3q5.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 282 Sep  1 16:14 ./a4q1.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 1096 Sep  1 16:54 ./a4q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 192 Sep  3 01:06 ./a4q3.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 67 Sep  1 17:47 ./a4q4.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 408 Sep  2 09:18 ./a4q5.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 320 Sep  3 00:03 ./a5q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 529 Sep  2 23:51 ./a5q3.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 1127 Sep  2 22:55 ./a5q4.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 675 Sep  2 17:23 ./a5q5.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 326 Sep  3 16:40 ./a6q1.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 502 Sep  3 17:59 ./a6q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 386 Sep  3 16:42 ./a6q3.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 505 Sep  3 18:16 ./a6q4.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 425 Sep  3 18:17 ./a6q5.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 172 Sep  6 08:33 ./a8q1.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 178 Sep  6 16:23 ./a8q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 295 Sep  6 08:38 ./a8q3.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 529 Sep  6 08:41 ./a8q4.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 250 Sep  6 08:43 ./a8q5.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 13 Aug 31 16:57 ./hello.exe
+-rwxrwxr-x 1 ubuntuu ubuntuu 401 Sep  1 08:24 ./q2extra.txt
+-rwxrwxr-x 1 ubuntuu ubuntuu 58 Sep  1 13:11 ./Q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 46 Sep  2 09:20 ./q4vow.txt
+
+Q2]
+echo "Enter a file or dir name:\c"
+read fname
+if [ -d $fname ]
+then
+  ls $fname
+  echo "This is a directory" 
+fi
+
+if [ -f $fname ]
+then
+  cat < $fname
+  echo "This is a file"
+fi
+---------------
+ubuntuu@ubuntuu:~/Desktop$ ./a8q2.sh
+Enter a file or dir name:\c
+q4vow.txt      
+a BA Ed In OU
+euu On A Ana
+i blUe u
+DO Ion
+us
+This is a file
+
+Q3]
+echo "enter the first file name:"
+read first
+echo "enter the second file name:"
+read second
+if [ -e $first ]
+then
+echo "$first file exist"
+if [ -e $second ]
+then
+echo "$second file exists"
+cat $first>>$second
+else
+cat $first>$second
+fi
+fi
+echo "Content of first file is appended to second file"
+---------------
+ubuntuu@ubuntuu:~/Desktop$ ./a8q3.sh
+enter the first file name:
+f1a8q3.txt
+enter the second file name:
+f2a8q3.txt
+f1a8q3.txt file exist
+f2a8q3.txt file exists
+Content of first file is appended to second file
+
+Q4]
+echo -n "Enter number: "
+read n
+ 
+len=$(echo $n | wc -c)
+len=$(( $len - 1 ))
+ 
+echo "Your number $n in words : "
+for (( i=1; i<=$len; i++ ))
+do
+   
+    digit=$(echo $n | cut -c $i)
+   
+    case $digit in
+        0) echo -n "zero " ;;
+        1) echo -n "one " ;;
+        2) echo -n "two " ;;
+        3) echo -n "three " ;;
+        4) echo -n "four " ;;
+        5) echo -n "five " ;;
+        6) echo -n "six " ;;
+        7) echo -n "seven " ;;
+        8) echo -n "eight " ;;
+        9) echo -n "nine " ;;
+    esac
+echo " "
+done
+---------------
+ubuntuu@ubuntuu:~/Desktop$ ./a8q4.sh
+Enter number: 5
+Your number 5 in words : 
+five 
+
+Q5]
+echo -n "Enter file name : "
+read file
+ 
+[ -w $file ] && W="Write = yes" || W="Write = No"
+[ -x $file ] && X="Execute = yes" || X="Execute = No"
+[ -r $file ] && R="Read = yes" || R="Read = No"
+ 
+echo "$file permissions"
+echo "$W"
+echo "$R"
+echo "$X"
+---------------
+ubuntuu@ubuntuu:~/Desktop$ ./a8q5.sh
+Enter file name : q4vow.txt
+q4vow.txt permissions
+Write = yes
+Read = yes
+Execute = yes

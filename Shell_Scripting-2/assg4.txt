@@ -1,0 +1,171 @@
+ASSIGNMENT-4
+
+Q1]
+filec=$(find $Desktop -maxdepth 1 -type f | wc -l)
+dirc=$(find $Desktop -maxdepth 1 -type d | wc -l)
+
+echo "filecount:" $filec
+echo "dircount:" $dirc
+
+for file in $(ls $desktop);
+do
+    [ -d "$file" ] && echo "$file is a directory"
+    [ -f "$file" ] && echo "$file is a file"
+done
+------------
+ubuntuu@ubuntuu:~/Desktop$ ./a4q1.sh
+filecount: 48
+dircount: 3
+a1q1.sh is a file
+a1q2.sh is a file
+a1q3.sh is a file
+a1q4.sh is a file
+a1q5.sh is a file
+a2q1.sh is a file
+a2q2.sh is a file
+a2q3.sh is a file
+a2q5.sh is a file
+a3q2.sh is a file
+a3q3.sh is a file
+a3q4.sh is a file
+a3q5.sh is a file
+a4q1.sh is a file
+a4q2.sh is a file
+a4q3.sh is a file
+a4q4.sh is a file
+a4q5.sh is a file
+a5q2.sh is a file
+a5q3.sh is a file
+a5q4.sh is a file
+a5q5.sh is a file
+a6q1.sh is a file
+a6q2.sh is a file
+a6q3.sh is a file
+a6q4.sh is a file
+a6q5.sh is a file
+a8q1.sh is a file
+a8q2.sh is a file
+a8q3.sh is a file
+a8q4.sh is a file
+a8q5.sh is a file
+dbs1 is a file
+emp.dat is a file
+f1a6q4.txt is a file
+f1a8q3.txt is a file
+f2a6q4.txt is a file
+f2a8q3.txt is a file
+hello.exe is a file
+hello.sh is a file
+movie.txt is a file
+proj.dat is a file
+prs is a file
+q2extraaaaa.txt is a file
+q2extra.txt is a file
+q2q5 is a directory
+Q2.sh is a file
+q4vow.txt is a file
+Shell_Scripting is a directory
+shellscripting2.txt is a file
+
+Q2]
+i="y"
+echo "Enter name of database "
+read db
+while [ $i = "y" ]
+do
+clear
+echo "1.View the Data Base "
+echo "2.View Specific Records "
+echo "3.Add Records "
+echo "4.Delete Records "
+echo "5.Exit "
+echo "Enter your choice "
+read ch
+    case $ch in
+        1)cat $db;;
+        2)echo "Enter rollno "
+          read rollno
+            grep -i "$rollno" $db;;
+        3)echo "Enter new rollno "
+          read nrollno
+          echo "Enter new name:"
+          read name
+          echo "Enter semester "
+          read sem
+          echo "Enter marks of english"
+          read eng
+          echo "Enter marks of maths"
+          read math
+          echo "Enter marks of science"
+          read sci
+          echo "$nrollno    $name    $sem    $eng   $maths   $sci" >> $db;;
+        4)echo "Enter rollno"
+          read nrollno
+     
+        grep -v "$nroll" $db > dbs1    
+          echo "Record is deleted"
+         cat dbs1;;          
+        5)exit;;
+          *)
+          echo "Invalid choice ";;
+    esac
+    
+echo "Do u want to continue ?"
+read i
+if [ $i != "y" ]
+then
+    exit
+fi
+done  
+------------
+database-prs
+25    praj    8    70   80   75
+29    pjk    7    78      70
+------------
+ubuntuu@ubuntuu:~/Desktop$ ./a4q2.sh
+Enter name of database 
+prs
+1.View the Data Base 
+2.View Specific Records 
+3.Add Records 
+4.Delete Records 
+5.Exit 
+Enter your choice 
+2
+Enter rollno 
+25
+25    praj    8    70   80   75
+Do u want to continue ?
+
+Q4]
+echo "enter file name:"
+read file
+grep -o -i [aeiou] $file | wc -l
+------------
+filename-q4vow.txt
+a BA Ed In OU
+euu On A Ana
+i blUe u
+DO Ion
+us
+------------
+ubuntuu@ubuntuu:~/Desktop$ ./a4q4.sh
+enter file name:
+q4vow.txt
+21
+
+Q5]
+echo "enter file name:"
+read filename
+awk 'BEGIN{c1=0} //{c1++} END{print "number of lines: ",c1}' $filename
+awk 'BEGIN{c=0} //{c++} END{print "number of words: ",c}' RS="[[:space:]]" $filename
+echo "number of alphabets are:"
+echo $(( $( grep -c '^' $filename ) + $( LC_ALL=C grep -o . $filename | grep -c '^' ) ))
+------------
+ubuntuu@ubuntuu:~/Desktop$ ./a4q5.sh
+enter file name:
+q4vow.txt
+number of lines:  5
+number of words:  15
+number of alphabets are:
+46

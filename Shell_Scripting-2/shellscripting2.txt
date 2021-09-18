@@ -1,0 +1,1201 @@
+ASSIGNMENT-1
+
+Q1]
+echo " Enter the principal value: "
+read p
+echo " Enter the rate of interest:"
+read r
+echo " Enter the time period:"
+read t
+s=`expr $p \* $t \* $r / 100`
+echo " The simple interest is "
+echo $s
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a1q1.sh
+ Enter the principal value: 
+3000
+ Enter the rate of interest:
+4
+ Enter the time period:
+2
+ The simple interest is 
+240
+
+Q2]
+echo -e "Enter the basic salary: \c"
+read basic_sal
+if [ $basic_sal -ge 0 ]
+then
+  basic=$(expr 1.0*"$basic_sal" | bc)
+  dp=$(expr 0.5*"$basic"| bc)
+  temp=$(expr "$basic"+"$dp" | bc)
+  da=$(expr 0.35*"$temp" | bc)
+  hra=$(expr 0.08*"$temp" | bc)
+  ma=$(expr 0.03*"$temp" | bc)
+  pf=$(expr 0.1*"$temp" | bc)
+  salary=$(expr "$basic"+"$dp"+"$da"+"$hra"+"$ma"-" $pf" | bc)
+ 
+  echo "Your Basic Salary: $basic "
+  echo "Your DP: $dp "
+  echo "Your DA: $da"
+  echo "Your HRA: $hra"
+  echo "Your MA: $ma"
+  echo "Your PF: $pf"
+  #echo " ------------"
+  #echo "Your Net Salary is  Rs. $salary "
+else
+  echo "Please enter a valid Basic Salary "
+fi 
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a1q2.sh
+Enter the basic salary: 30000
+Your Basic Salary: 30000.0 
+Your DP: 15000.0 
+Your DA: 15750.00
+Your HRA: 3600.00
+Your MA: 1350.00
+Your PF: 4500.0
+
+Q3]
+echo "Enter Size(N)"
+read N
+i=1
+sum=0
+echo "Enter Numbers"
+while [ $i -le $N ]
+do
+  read num              
+  sum=$((sum + num))     
+  i=$((i + 1))
+done
+avg=$(echo $sum / $N | bc -l)
+echo $avg
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a1q3.sh
+Enter Size(N)
+5
+Enter Numbers
+2
+4
+8
+9
+10
+6.60000000000000000000
+
+Q4]
+echo "Enter the number of terms to be added: "
+read n
+sum=0
+for (( i=1; i<=n; i++ ))
+do
+  sum=$(( sum+i ))
+done
+echo "Sum is $sum"
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a1q4.sh
+Enter the number of terms to be added: 
+5
+Sum is 15
+
+Q5]
+echo "Enter Two numbers : "
+read a
+read b
+
+echo "Enter Choice :"
+echo "1. Addition"
+echo "2. Subtraction"
+echo "3. Multiplication"
+echo "4. Division"
+read ch
+
+case $ch in
+1)res=`echo $a + $b | bc` ;;
+2)res=`echo $a - $b | bc` ;;
+3)res=`echo $a \* $b | bc` ;;
+4)res=`echo "scale=2; $a / $b" | bc` ;;
+esac
+echo "Result : $res"
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a1q5.sh
+Enter Two numbers : 
+4
+5
+Enter Choice :
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+1
+Result : 9
+ubuntuu@ubuntuu:~/Desktop$ ./a1q5.sh
+Enter Two numbers : 
+4
+5
+Enter Choice :
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+3
+Result : 20
+ubuntuu@ubuntuu:~/Desktop$ ./a1q5.sh
+Enter Two numbers : 
+4
+5
+Enter Choice :
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+4
+Result : .80
+
+
+ASSIGNMENT-2
+
+Q1]
+echo "Enter the width of rectangle "
+read width
+echo "Enter the height of rectangle "
+read height
+echo "Area of a rectangle is:"
+expr $width \* $height
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a2q1.sh
+Enter the width of rectangle 
+4
+Enter the height of rectangle 
+5
+Area of a rectangle is:
+20
+
+Q2]
+echo "Enter num1"
+read num1
+if [ $num1 -le 0 ]
+then
+echo "Enter a number greater than zero"
+read -p 'Enter num1 ' num1
+fi
+
+echo "Enter num2"
+read num2
+if [ $num2 -le 0 ]
+then
+echo "Enter a number greater than zero"
+read -p 'Enter num2 ' num2
+fi
+
+if [ $num1 -gt $num2 ]
+then
+  #x=$(( num1/num2 ))
+  x=$(expr $num1/$num2 | bc -l)
+else
+  #x=$(( num2/num1 ))
+  x=$(expr $num2/$num1 | bc -l)
+fi
+echo "Result of bigger number divided by smaller number is $x"
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a2q2.sh
+Enter num1
+5
+Enter num2
+6
+Result of bigger number divided by smaller number is 1.20000000000000000000
+ubuntuu@ubuntuu:~/Desktop$ ./a2q2.sh
+Enter num1
+5
+Enter num2
+0
+Enter a number greater than zero
+Enter num2 6
+Result of bigger number divided by smaller number is 1.20000000000000000000
+ubuntuu@ubuntuu:~/Desktop$ ./a2q2.sh
+Enter num1
+0
+Enter a number greater than zero
+Enter num1 5
+Enter num2
+6
+Result of bigger number divided by smaller number is 1.20000000000000000000
+
+Q3]
+echo "Current directory is: " $PWD
+
+echo "The username is: " $LOGNAME
+
+echo "Today is:" $(date '+%m/%d/%y')
+
+log=`who|wc -l`
+echo "No. of logged in users are: " $log
+
+echo $PPID
+#echo `ps -p $$ -o args,ppid`
+#echo $$
+#echo `ps`
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a2q3.sh
+Current directory is:  /home/ubuntuu/Desktop
+The username is:  ubuntuu
+Today is: 09/18/21
+No. of logged in users are:  1
+1768
+
+Q5]
+echo "Enter a number:"
+read n
+echo "Enter a word to be printed for $n times:"
+read word
+echo "----------"
+
+for (( i=1; i<=n; i++ ))
+do
+  echo $word
+done
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a2q5.sh
+Enter a number:
+5
+Enter a word to be printed for 5 times:
+Hey
+----------
+Hey
+Hey
+Hey
+Hey
+Hey
+
+
+ASSIGNMENT-3
+
+Q1]
+for file in Desktop/*.sh
+do mv "$file" "${file%.*}.exe"
+done
+------------
+OUTPUT:
+changed file name hello.sh to hello.exe
+
+Q2]
+read -a arr -p "Enter numbers:"
+
+for i in "${arr[@]}"
+do
+    if [ $i -lt 0 ]
+    then
+    	echo "$i is negative"
+    elif [ $i -gt 0 ]
+    then
+    	echo "$i is positive"    
+    else
+    	echo "Number is 0"
+    fi
+done
+ 
+sort -n <(printf "%d\n" "${arr[@]}") | tr "\n" " "
+echo
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a3q2.sh
+Enter numbers:5 4 -1 0 6 7 9 10 -2 -6 
+5 is positive
+4 is positive
+-1 is negative
+Number is 0
+6 is positive
+7 is positive
+9 is positive
+10 is positive
+-2 is negative
+-6 is negative
+-6 -2 -1 0 4 5 6 7 9 10 
+
+Q3]
+i=1
+while (( i<=999 ))
+do
+    c=$i
+    d=$i
+    b=0
+    a=0
+    
+    #checking each number
+    while (( c>0 ))
+    do
+        a=$(( c%10 )) #separating each digit
+        b=$(( b+a*a*a )) #finding cube of each digit and adding them
+	c=$(( c/10 ))     
+    done
+    
+    if(( b==d ))
+    then
+        echo "$i"
+    fi
+    i=$(( i+1 ))
+done
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a3q3.sh
+1
+153
+370
+371
+407
+
+Q4]
+date +"Year:%Y, Month:%m, Day:%d %n Hour:%H,Minute:%M,Seconds:%S"
+date +"DATE:%d/%m/%y %n TIME:%H:%M:%S"
+date +"DATE:%m/%d/%y %n TIME:%H:%M:%S"
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a3q4.sh
+Year:2021, Month:09, Day:18 
+ Hour:13,Minute:37,Seconds:54
+DATE:18/09/21 
+ TIME:13:37:54
+DATE:09/18/21 
+ TIME:13:37:54
+
+Q5]
+#arr=(1 2 4 8 3)
+read -a arr
+min=${arr[0]}
+max=${arr[0]}
+
+for i in ${arr[@]}
+do  
+    if [[ $i -gt $max ]]
+    then
+    	max=$i
+    fi
+    
+    if [[ $i -lt $min ]]
+    then 
+    	min=$i
+    fi
+done
+
+echo "the largest number is $max"
+echo "the smallest number is $min"
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a3q5.sh
+5 4 98 -1 3
+the largest number is 98
+the smallest number is -1
+
+
+ASSIGNMENT-4
+
+Q1]
+filec=$(find $Desktop -maxdepth 1 -type f | wc -l)
+dirc=$(find $Desktop -maxdepth 1 -type d | wc -l)
+
+echo "filecount:" $filec
+echo "dircount:" $dirc
+
+for file in $(ls $desktop);
+do
+    [ -d "$file" ] && echo "$file is a directory"
+    [ -f "$file" ] && echo "$file is a file"
+done
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a4q1.sh
+filecount: 48
+dircount: 3
+a1q1.sh is a file
+a1q2.sh is a file
+a1q3.sh is a file
+a1q4.sh is a file
+a1q5.sh is a file
+a2q1.sh is a file
+a2q2.sh is a file
+a2q3.sh is a file
+a2q5.sh is a file
+a3q2.sh is a file
+a3q3.sh is a file
+a3q4.sh is a file
+a3q5.sh is a file
+a4q1.sh is a file
+a4q2.sh is a file
+a4q3.sh is a file
+a4q4.sh is a file
+a4q5.sh is a file
+a5q2.sh is a file
+a5q3.sh is a file
+a5q4.sh is a file
+a5q5.sh is a file
+a6q1.sh is a file
+a6q2.sh is a file
+a6q3.sh is a file
+a6q4.sh is a file
+a6q5.sh is a file
+a8q1.sh is a file
+a8q2.sh is a file
+a8q3.sh is a file
+a8q4.sh is a file
+a8q5.sh is a file
+dbs1 is a file
+emp.dat is a file
+f1a6q4.txt is a file
+f1a8q3.txt is a file
+f2a6q4.txt is a file
+f2a8q3.txt is a file
+hello.exe is a file
+hello.sh is a file
+movie.txt is a file
+proj.dat is a file
+prs is a file
+q2extraaaaa.txt is a file
+q2extra.txt is a file
+q2q5 is a directory
+Q2.sh is a file
+q4vow.txt is a file
+Shell_Scripting is a directory
+shellscripting2.txt is a file
+
+Q2]
+i="y"
+echo "Enter name of database "
+read db
+while [ $i = "y" ]
+do
+clear
+echo "1.View the Data Base "
+echo "2.View Specific Records "
+echo "3.Add Records "
+echo "4.Delete Records "
+echo "5.Exit "
+echo "Enter your choice "
+read ch
+    case $ch in
+        1)cat $db;;
+        2)echo "Enter rollno "
+          read rollno
+            grep -i "$rollno" $db;;
+        3)echo "Enter new rollno "
+          read nrollno
+          echo "Enter new name:"
+          read name
+          echo "Enter semester "
+          read sem
+          echo "Enter marks of english"
+          read eng
+          echo "Enter marks of maths"
+          read math
+          echo "Enter marks of science"
+          read sci
+          echo "$nrollno    $name    $sem    $eng   $maths   $sci" >> $db;;
+        4)echo "Enter rollno"
+          read nrollno
+     
+        grep -v "$nroll" $db > dbs1    
+          echo "Record is deleted"
+         cat dbs1;;          
+        5)exit;;
+          *)
+          echo "Invalid choice ";;
+    esac
+    
+echo "Do u want to continue ?"
+read i
+if [ $i != "y" ]
+then
+    exit
+fi
+done  
+--
+database-prs
+25    praj    8    70   80   75
+29    pjk    7    78      70
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a4q2.sh
+Enter name of database 
+prs
+1.View the Data Base 
+2.View Specific Records 
+3.Add Records 
+4.Delete Records 
+5.Exit 
+Enter your choice 
+2
+Enter rollno 
+25
+25    praj    8    70   80   75
+Do u want to continue ?
+
+Q4]
+echo "enter file name:"
+read file
+grep -o -i [aeiou] $file | wc -l
+--
+filename-q4vow.txt
+a BA Ed In OU
+euu On A Ana
+i blUe u
+DO Ion
+us
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a4q4.sh
+enter file name:
+q4vow.txt
+21
+
+Q5]
+echo "enter file name:"
+read filename
+awk 'BEGIN{c1=0} //{c1++} END{print "number of lines: ",c1}' $filename
+awk 'BEGIN{c=0} //{c++} END{print "number of words: ",c}' RS="[[:space:]]" $filename
+echo "number of alphabets are:"
+echo $(( $( grep -c '^' $filename ) + $( LC_ALL=C grep -o . $filename | grep -c '^' ) ))
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a4q5.sh
+enter file name:
+q4vow.txt
+number of lines:  5
+number of words:  15
+number of alphabets are:
+46
+
+
+ASSIGNMENT-5
+
+Q2]
+echo "Enter two numbers:"
+read a
+read b
+echo "Enter choice"
+echo "1.Addition"
+echo "2.Subtraction"
+echo "3.Multiplication"
+echo "4.Division"
+read choice
+echo "Result is"
+case $choice in
+  1) res= echo $a + $b | bc ;;
+  2) res= echo $a - $b | bc ;;
+  3) res= echo $(( a * b )) | bc ;;
+  4) res= echo $a / $b | bc ;;
+esac
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a5q2.sh
+Enter two numbers:
+5
+8
+Enter choice
+1.Addition
+2.Subtraction
+3.Multiplication
+4.Division
+3
+Result is
+40
+
+Q3]
+r=$(( $RANDOM % 21 ))
+echo $r
+
+for i in {1..6}
+do 
+echo "chance $i to guess the number:"
+read number
+if [ $number -gt $r ]
+then
+  echo "Number is higher than $r"
+elif [ $number -lt $r ]
+then
+  echo "Number is lower than $r"
+else
+  echo "You guessed it right"
+fi
+done
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a5q3.sh
+14
+chance 1 to guess the number:
+5
+Number is lower than 14
+chance 2 to guess the number:
+4
+Number is lower than 14
+chance 3 to guess the number:
+9
+Number is lower than 14
+chance 4 to guess the number:
+7
+Number is lower than 14
+chance 5 to guess the number:
+3
+Number is lower than 14
+chance 6 to guess the number:
+1
+Number is lower than 14
+ubuntuu@ubuntuu:~/Desktop$ ./a5q3.sh
+15
+chance 1 to guess the number:
+4
+Number is lower than 15
+chance 2 to guess the number:
+15
+You guessed it right
+chance 3 to guess the number:
+
+Q4]
+echo "Enter username:"
+read uname
+echo "Enter password:"
+read pword
+
+echo "Username is: $uname"
+echo "Password is: $pword"
+
+if [ -z "$uname" ] || [ -z "$pword" ]
+then
+  echo  "Not logged in"
+  exit 1
+else
+  echo "Logged in at:" 
+  date 
+fi
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a5q4.sh
+Enter username:
+praj
+Enter password:
+praj123
+Username is: praj
+Password is: praj123
+Logged in at:
+Saturday 18 September 2021 02:15:27 PM IST
+
+ubuntuu@ubuntuu:~/Desktop$ ./a5q4.sh
+Enter username:
+praj
+Enter password:
+
+Username is: praj
+Password is: 
+Not logged in
+
+ubuntuu@ubuntuu:~/Desktop$ ./a5q4.sh
+Enter username:
+
+Enter password:
+praj123
+Username is: 
+Password is: praj123
+Not logged in
+
+Q5]
+echo "Enter the marks for Unix VB.Net PHP :"
+read m1 m2 m3
+sum=$(( m1 + m2 + m3 ))
+echo "Sum of the marks is: "$sum
+avg=$(( ($sum) / 3 ))
+echo "Average is: " $avg
+
+if [ $avg -ge 70 ]
+then 
+    echo "Distinction"
+elif [ $avg -ge 60 ]
+then 
+    echo "First Class"
+elif [ $avg -ge 50 ]
+then 
+    echo "Second Class"
+elif [ $avg -ge 40 ]
+then 
+    echo "Third Class"
+else 
+    echo "Fail"
+fi
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a5q5.sh
+Enter the marks for Unix VB.Net PHP :
+66 44 70
+Sum of the marks is: 180
+Average is:  60
+First Class
+
+
+ASSIGNMENT-6
+
+echo "Enter a string to be entered:"
+read str
+echo
+len=`echo $str | wc -c`
+len=`expr $len - 1`
+i=1
+j=`expr $len / 2`
+while test $i -le $j
+do
+k=`echo $str | cut -c $i`
+l=`echo $str | cut -c $len`
+if test $k != $l
+then
+echo "String is not palindrome"
+exit
+fi
+i=`expr $i + 1`
+len=`expr $len - 1`
+done
+echo "String is palindrome"
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a6q1.sh
+Enter a string to be entered:
+moon
+
+String is not palindrome
+
+ubuntuu@ubuntuu:~/Desktop$ ./a6q1.sh
+Enter a string to be entered:
+madam
+
+String is palindrome
+
+Q2]
+echo -e "Enter the value of Basic Salary: \c"
+read basic_sal
+if [ $basic_sal -ge 0 ]
+then
+  basic=$(expr 1.0*"$basic_sal" | bc)
+  da=$(expr 0.34*"$basic" | bc)
+  hra=$(expr 0.24*"$basic" | bc)
+  pf=$(expr 0.11*"$basic" | bc)
+#  salary=$(expr "$basic"+"$da"+"$hra"-" $pf" | bc)
+ 
+  echo "Your Basic Salary: $basic "
+  echo "Your DA: $da"
+  echo "Your HRA: $hra"
+  echo "Your PF: $pf"
+#  echo " ------------"
+#  echo "Your Net Salary is Rs. $salary "
+else
+  echo "Please enter a valid Basic Salary "
+fi 
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a6q2.sh
+Enter the value of Basic Salary: 30000
+Your Basic Salary: 30000.0 
+Your DA: 10200.00
+Your HRA: 7200.00
+Your PF: 3300.00
+
+Q3]
+read -p "CD no: " cdno
+read -p "Enter Movie Name: " movie
+read -p "Language: " language
+read -p "Price: " price
+read -p "Date of Release (mm/dd/yyyy): " dor
+if date=$(date -d "$dor" +D)
+then
+ echo "CD no: $cdno " >movie.txt
+ echo "Movie Name: $movie " >>movie.txt
+ echo "Language: $language " >>movie.txt
+ echo "Price: $price " >>movie.txt
+ echo "Date of Release: $dor " >>movie.txt
+fi
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a6q3.sh
+(in movie.txt file)
+CD no: 122 
+Movie Name: DCH 
+Language: Hindi 
+Price: 50 
+Date of Release: 08/13/2001
+
+Q4]
+echo -e "Enter the file 1 : \c"  #f1a6q4.txt 
+read file1
+echo -e "Enter the file 2 : \c"  #f2a6q4.txt
+read file2
+if [ -e $file1 ]
+then
+  if [ -r $file1 ]
+  then
+ if [ -e $second ]
+ then
+   echo -e "Alert! file 2 already exist. Press 'y' to overwrite. \c"
+   read yn
+   if [ yn='y' ]
+   then
+     cat $file1>$file2
+     echo "File copied."
+   fi
+ else
+   cat $file1>$file2
+   echo "File copied."
+ fi
+  else
+ echo "Sorry! file don't have read permission."
+  fi
+else
+  echo "Sorry! file 1 doesn't exist."
+fi
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a6q4.sh
+Enter the file 1 : f1a6q4.txt
+Enter the file 2 : f2a6q4.txt
+Alert! file 2 already exist. Press 'y' to overwrite. y
+File copied.
+
+Q5]
+echo -n "Enter name of the directory : "  #Shell_Scripting 
+                                          #create dum1.txt file in above dir
+read directory_name
+
+if [ -d "$directory_name" ];
+then
+    echo "Directory exist"
+        for i in `find $directory_name -size 0`
+        do
+            rm $i    
+            echo "Zero-sized file are is Successfully deleted"    
+        done
+else
+    echo "Directory does not exist"
+
+fi
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a6q5.sh
+Enter name of the directory : Shell_Scripting
+Directory exist
+Zero-sized file are is Successfully deleted
+
+
+ASSIGNMENT-8
+
+Q1]
+echo "The name of all files having all permissions :"
+for file in $Desktop./*
+do
+if [ -f $file ]
+then
+if [ -r $file -a -w $file -a -x $file ]
+then
+ls -l $file
+fi
+fi
+done
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a8q1.sh
+The name of all files having all permissions :
+-rwxrwxr-x 1 ubuntuu ubuntuu 194 Sep  6 12:55 ./a1q1.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 642 Sep  6 12:00 ./a1q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 197 Sep 18 13:23 ./a1q3.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 133 Sep  6 12:45 ./a1q4.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 325 Sep  6 12:58 ./a1q5.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 152 Sep  6 16:36 ./a2q1.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 456 Sep  6 18:38 ./a2q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 228 Sep  6 19:07 ./a2q3.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 153 Sep  6 18:23 ./a2q5.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 287 Sep  1 12:28 ./a3q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 339 Sep  1 01:42 ./a3q3.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 144 Sep  1 00:56 ./a3q4.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 900 Sep  2 22:43 ./a3q5.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 282 Sep  1 16:14 ./a4q1.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 1096 Sep  1 16:54 ./a4q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 192 Sep  3 01:06 ./a4q3.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 67 Sep  1 17:47 ./a4q4.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 408 Sep  2 09:18 ./a4q5.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 320 Sep  3 00:03 ./a5q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 529 Sep  2 23:51 ./a5q3.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 1127 Sep  2 22:55 ./a5q4.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 675 Sep  2 17:23 ./a5q5.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 326 Sep  3 16:40 ./a6q1.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 502 Sep  3 17:59 ./a6q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 386 Sep  3 16:42 ./a6q3.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 505 Sep  3 18:16 ./a6q4.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 425 Sep  3 18:17 ./a6q5.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 172 Sep  6 08:33 ./a8q1.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 178 Sep  6 16:23 ./a8q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 295 Sep  6 08:38 ./a8q3.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 529 Sep  6 08:41 ./a8q4.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 250 Sep  6 08:43 ./a8q5.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 13 Aug 31 16:57 ./hello.exe
+-rwxrwxr-x 1 ubuntuu ubuntuu 401 Sep  1 08:24 ./q2extra.txt
+-rwxrwxr-x 1 ubuntuu ubuntuu 58 Sep  1 13:11 ./Q2.sh
+-rwxrwxr-x 1 ubuntuu ubuntuu 46 Sep  2 09:20 ./q4vow.txt
+
+Q2]
+echo "Enter a file or dir name:\c"
+read fname
+if [ -d $fname ]
+then
+  ls $fname
+  echo "This is a directory" 
+fi
+
+if [ -f $fname ]
+then
+  cat < $fname
+  echo "This is a file"
+fi
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a8q2.sh
+Enter a file or dir name:\c
+q4vow.txt      
+a BA Ed In OU
+euu On A Ana
+i blUe u
+DO Ion
+us
+This is a file
+
+Q3]
+echo "enter the first file name:"
+read first
+echo "enter the second file name:"
+read second
+if [ -e $first ]
+then
+echo "$first file exist"
+if [ -e $second ]
+then
+echo "$second file exists"
+cat $first>>$second
+else
+cat $first>$second
+fi
+fi
+echo "Content of first file is appended to second file"
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a8q3.sh
+enter the first file name:
+f1a8q3.txt
+enter the second file name:
+f2a8q3.txt
+f1a8q3.txt file exist
+f2a8q3.txt file exists
+Content of first file is appended to second file
+
+Q4]
+echo -n "Enter number: "
+read n
+ 
+len=$(echo $n | wc -c)
+len=$(( $len - 1 ))
+ 
+echo "Your number $n in words : "
+for (( i=1; i<=$len; i++ ))
+do
+   
+    digit=$(echo $n | cut -c $i)
+   
+    case $digit in
+        0) echo -n "zero " ;;
+        1) echo -n "one " ;;
+        2) echo -n "two " ;;
+        3) echo -n "three " ;;
+        4) echo -n "four " ;;
+        5) echo -n "five " ;;
+        6) echo -n "six " ;;
+        7) echo -n "seven " ;;
+        8) echo -n "eight " ;;
+        9) echo -n "nine " ;;
+    esac
+echo " "
+done
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a8q4.sh
+Enter number: 5
+Your number 5 in words : 
+five 
+
+Q5]
+echo -n "Enter file name : "
+read file
+ 
+[ -w $file ] && W="Write = yes" || W="Write = No"
+[ -x $file ] && X="Execute = yes" || X="Execute = No"
+[ -r $file ] && R="Read = yes" || R="Read = No"
+ 
+echo "$file permissions"
+echo "$W"
+echo "$R"
+echo "$X"
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a8q5.sh
+Enter file name : q4vow.txt
+q4vow.txt permissions
+Write = yes
+Read = yes
+Execute = yes
+
+
+ASSIGNMENT-7
+
+Q4]
+i="y"
+echo "Enter name of database "
+read db
+while [ $i = "y" ]
+do
+clear
+echo "1.View the Data Base "
+echo "2.View Specific Records "
+echo "3.Add Records "
+echo "4.Delete Records "
+echo "5.Exit "
+echo "Enter your choice "
+read ch
+    case $ch in
+        1)cat $db;;
+        2)echo "Enter rollno "
+          read id
+            grep -i "$id" $db;;
+        3)echo "Enter new rollno "
+          read roll
+          echo "Enter new name:"
+          read name
+          echo "Enter semester "
+          read sem
+          echo "Enter mark of english"
+          read eng
+          echo "Enter mark of maths"
+          read maths
+          echo "Enter mark of science"
+          read sci
+          echo "$roll    $name    $sem    $eng   $maths   $sci">>$db;;
+        4)echo "Enter rollno"
+          read id
+     
+        grep -v "$id" $db >dbs1    
+          echo "Record is deleted"
+         cat dbs1;;          
+        5)exit;;
+        *)echo "Invalid choice ";;
+    esac
+echo "Do u want to continue ?"
+read i
+if [ $i != "y" ]
+then
+    exit
+fi
+done      
+-----------------
+1.View the Data Base 
+2.View Specific Records 
+3.Add Records 
+4.Delete Records 
+5.Exit 
+Enter your choice 
+3
+Enter new rollno 
+30
+Enter new name:
+pk
+Enter semester 
+5
+Enter mark of english
+79
+Enter mark of maths
+89
+Enter mark of science
+80
+Do u want to continue ?
+y
+1.View the Data Base 
+2.View Specific Records 
+3.Add Records 
+4.Delete Records 
+5.Exit 
+Enter your choice 
+1
+25    praj    8    70   80   75
+29    pjk    7    78      70
+30    pk    5    79   89   80
+Do u want to continue ?
+y
+1.View the Data Base 
+2.View Specific Records 
+3.Add Records 
+4.Delete Records 
+5.Exit 
+Enter your choice 
+4
+Enter rollno
+30
+Record is deleted
+25    praj    8    70   80   75
+29    pjk    7    78      70
+
+Q5]
+matrix1=(1 2 3 4 5 6 7 8 9) #3*3 matrix
+matrix2=(11 12 13 14 15 16 17 18 18 19) #3*3 matrix
+rows=3
+cols=3
+echo "First matrix"
+for((i=0; i<rows; i++))
+do
+  for((j=0; j<cols; j++))
+  do
+    index=$((i*cols+j))
+    echo -n "${matrix1[index]} "
+  done
+  echo
+done
+ 
+echo "Second matrix"
+for((i=0; i<rows; i++))
+do
+  for((j=0; j<cols; j++))
+  do
+    index=$((i*cols+j))
+    echo -n "${matrix2[index]} "
+  done
+  echo
+done
+ 
+k=0
+matrix3=()
+for((i=0; i<rows; i++))
+do
+  for((j=0; j<cols; j++))
+  do
+    index=$((i*cols+j))
+    matrix3[k]=$((${matrix1[index]} + ${matrix2[index]}))
+    k=$((k+1))
+  done
+done
+echo "Addition of two matrix"
+for((i=0; i<rows; i++))
+do
+  for((j=0; j<cols; j++))
+  do
+    index=$((i*cols+j))
+    echo -n "${matrix3[index]} "
+  done
+  echo
+done
+------------------
+ubuntuu@ubuntuu:~/Desktop$ ./a7q5.sh
+First matrix
+1 2 3 
+4 5 6 
+7 8 9 
+Second matrix
+11 12 13 
+14 15 16 
+17 18 18 
+Addition of two matrix
+12 14 16 
+18 20 22 
+24 26 27 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

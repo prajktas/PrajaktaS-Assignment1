@@ -1,0 +1,158 @@
+ASSIGNMENT-5
+
+Q2]
+echo "Enter two numbers:"
+read a
+read b
+echo "Enter choice"
+echo "1.Addition"
+echo "2.Subtraction"
+echo "3.Multiplication"
+echo "4.Division"
+read choice
+echo "Result is"
+case $choice in
+  1) res= echo $a + $b | bc ;;
+  2) res= echo $a - $b | bc ;;
+  3) res= echo $(( a * b )) | bc ;;
+  4) res= echo $a / $b | bc ;;
+esac
+------------
+ubuntuu@ubuntuu:~/Desktop$ ./a5q2.sh
+Enter two numbers:
+5
+8
+Enter choice
+1.Addition
+2.Subtraction
+3.Multiplication
+4.Division
+3
+Result is
+40
+
+Q3]
+r=$(( $RANDOM % 21 ))
+echo $r
+
+for i in {1..6}
+do 
+echo "chance $i to guess the number:"
+read number
+if [ $number -gt $r ]
+then
+  echo "Number is higher than $r"
+elif [ $number -lt $r ]
+then
+  echo "Number is lower than $r"
+else
+  echo "You guessed it right"
+fi
+done
+------------
+ubuntuu@ubuntuu:~/Desktop$ ./a5q3.sh
+14
+chance 1 to guess the number:
+5
+Number is lower than 14
+chance 2 to guess the number:
+4
+Number is lower than 14
+chance 3 to guess the number:
+9
+Number is lower than 14
+chance 4 to guess the number:
+7
+Number is lower than 14
+chance 5 to guess the number:
+3
+Number is lower than 14
+chance 6 to guess the number:
+1
+Number is lower than 14
+ubuntuu@ubuntuu:~/Desktop$ ./a5q3.sh
+15
+chance 1 to guess the number:
+4
+Number is lower than 15
+chance 2 to guess the number:
+15
+You guessed it right
+chance 3 to guess the number:
+
+Q4]
+echo "Enter username:"
+read uname
+echo "Enter password:"
+read pword
+
+echo "Username is: $uname"
+echo "Password is: $pword"
+
+if [ -z "$uname" ] || [ -z "$pword" ]
+then
+  echo  "Not logged in"
+  exit 1
+else
+  echo "Logged in at:" 
+  date 
+fi
+------------
+ubuntuu@ubuntuu:~/Desktop$ ./a5q4.sh
+Enter username:
+praj
+Enter password:
+praj123
+Username is: praj
+Password is: praj123
+Logged in at:
+Saturday 18 September 2021 02:15:27 PM IST
+
+ubuntuu@ubuntuu:~/Desktop$ ./a5q4.sh
+Enter username:
+praj
+Enter password:
+
+Username is: praj
+Password is: 
+Not logged in
+
+ubuntuu@ubuntuu:~/Desktop$ ./a5q4.sh
+Enter username:
+
+Enter password:
+praj123
+Username is: 
+Password is: praj123
+Not logged in
+
+Q5]
+echo "Enter the marks for Unix VB.Net PHP :"
+read m1 m2 m3
+sum=$(( m1 + m2 + m3 ))
+echo "Sum of the marks is: "$sum
+avg=$(( ($sum) / 3 ))
+echo "Average is: " $avg
+
+if [ $avg -ge 70 ]
+then 
+    echo "Distinction"
+elif [ $avg -ge 60 ]
+then 
+    echo "First Class"
+elif [ $avg -ge 50 ]
+then 
+    echo "Second Class"
+elif [ $avg -ge 40 ]
+then 
+    echo "Third Class"
+else 
+    echo "Fail"
+fi
+------------
+ubuntuu@ubuntuu:~/Desktop$ ./a5q5.sh
+Enter the marks for Unix VB.Net PHP :
+66 44 70
+Sum of the marks is: 180
+Average is:  60
+First Class

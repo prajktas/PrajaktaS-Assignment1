@@ -1,0 +1,113 @@
+ASSIGNMENT-3
+
+Q1]
+for file in Desktop/*.sh
+do mv "$file" "${file%.*}.exe"
+done
+------------
+OUTPUT:
+changed file name hello.sh to hello.exe
+
+Q2]
+read -a arr -p "Enter numbers:"
+
+for i in "${arr[@]}"
+do
+    if [ $i -lt 0 ]
+    then
+    	echo "$i is negative"
+    elif [ $i -gt 0 ]
+    then
+    	echo "$i is positive"    
+    else
+    	echo "Number is 0"
+    fi
+done
+ 
+sort -n <(printf "%d\n" "${arr[@]}") | tr "\n" " "
+echo
+----------------
+ubuntuu@ubuntuu:~/Desktop$ ./a3q2.sh
+Enter numbers:5 4 -1 0 6 7 9 10 -2 -6 
+5 is positive
+4 is positive
+-1 is negative
+Number is 0
+6 is positive
+7 is positive
+9 is positive
+10 is positive
+-2 is negative
+-6 is negative
+-6 -2 -1 0 4 5 6 7 9 10 
+
+Q3]
+i=1
+while (( i<=999 ))
+do
+    c=$i
+    d=$i
+    b=0
+    a=0
+    
+    #checking each number
+    while (( c>0 ))
+    do
+        a=$(( c%10 )) #separating each digit
+        b=$(( b+a*a*a )) #finding cube of each digit and adding them
+	c=$(( c/10 ))     
+    done
+    
+    if(( b==d ))
+    then
+        echo "$i"
+    fi
+    i=$(( i+1 ))
+done
+----------------
+ubuntuu@ubuntuu:~/Desktop$ ./a3q3.sh
+1
+153
+370
+371
+407
+
+Q4]
+date +"Year:%Y, Month:%m, Day:%d %n Hour:%H,Minute:%M,Seconds:%S"
+date +"DATE:%d/%m/%y %n TIME:%H:%M:%S"
+date +"DATE:%m/%d/%y %n TIME:%H:%M:%S"
+----------------
+ubuntuu@ubuntuu:~/Desktop$ ./a3q4.sh
+Year:2021, Month:09, Day:18 
+ Hour:13,Minute:37,Seconds:54
+DATE:18/09/21 
+ TIME:13:37:54
+DATE:09/18/21 
+ TIME:13:37:54
+
+Q5]
+#arr=(1 2 4 8 3)
+read -a arr
+min=${arr[0]}
+max=${arr[0]}
+
+for i in ${arr[@]}
+do  
+    if [[ $i -gt $max ]]
+    then
+    	max=$i
+    fi
+    
+    if [[ $i -lt $min ]]
+    then 
+    	min=$i
+    fi
+done
+
+echo "the largest number is $max"
+echo "the smallest number is $min"
+----------------
+ubuntuu@ubuntuu:~/Desktop$ ./a3q5.sh
+5 4 98 -1 3
+the largest number is 98
+the smallest number is -1
