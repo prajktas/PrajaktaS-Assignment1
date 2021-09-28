@@ -1,0 +1,1491 @@
+1)  Install Docker, either on your native OS or on a VM. Make sure it runs. type "docker -v" to check if it's installed.
+Soln.
+C:\Users\Asus>docker -v
+Docker version 20.10.8, build 3967b7d
+
+
+2) Find a image from dockerhub of your choice(recommeded: nginx), don't use browser, pull the official image from dockerhub
+Soln.
+C:\Users\Asus>docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+e1acddbe380c: Already exists
+e21006f71c6f: Pull complete
+f3341cc17e58: Pull complete
+2a53fa598ee2: Pull complete
+12455f71a9b5: Pull complete
+b86f2ba62d17: Pull complete
+Digest: sha256:c37290e20d62e1a62756fd55af0db0dfaccd6a1ac22706d19a09002917f8032b
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+
+
+3) List all the available images in your machine/vm, make sure you see recently pulled image in the list.
+Soln.
+C:\Users\Asus>docker images
+REPOSITORY         TAG       IMAGE ID       CREATED        SIZE
+myimage              1.0       144b81df8cd1   3 days ago     103MB
+jenkins/jenkins   latest    8360c5d104f2   9 days ago     441MB
+redis                    latest    ddcca4b8a6f0   2 weeks ago    105MB
+nginx                   latest    dd34e67e3371   2 weeks ago    133MB
+ubuntu               latest    1318b700e415   5 weeks ago    72.8MB
+hello-world         latest    d1165f221234   6 months ago   13.3kB
+
+
+4)  Find out the "Full" ImageId of the image that you pulled and write it below.
+Soln.
+C:\Users\Asus>docker images -q nginx
+dd34e67e3371
+
+
+5) Create a container of your image
+Soln.
+C:\Users\Asus>docker run -d --name MyNginx -it nginx
+44a617766cffce09eccaf63119bc2358ee1c00e5c22d387ec494d0241881b442
+
+
+6) List all the running containers
+Soln.
+C:\Users\Asus>docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS     NAMES
+44a617766cff   nginx     "/docker-entrypoint.…"   30 seconds ago   Up 27 seconds   80/tcp    MyNginx
+
+
+7) List all the running and stopped containers
+Soln.
+C:\Users\Asus>docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS                     PORTS     NAMES
+44a617766cff   nginx     "/docker-entrypoint.…"   About a minute ago   Up About a minute          80/tcp    MyNginx
+e00e32316466   nginx     "/docker-entrypoint.…"   12 minutes ago       Exited (0) 6 minutes ago             dreamy_wing
+
+
+8) Find out the "Full" containerId of the container and write it below.
+Soln.
+C:\Users\Asus>docker ps -q
+44a617766cff
+
+
+9) Find out how many image layers are used to build this image.
+Soln.
+C:\Users\Asus>docker inspect MyNginx
+[
+    {
+        "Id": "44a617766cffce09eccaf63119bc2358ee1c00e5c22d387ec494d0241881b442",
+        "Created": "2021-09-03T07:45:02.7640545Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "nginx",
+            "-g",
+            "daemon off;"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1496,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2021-09-03T07:45:05.3877881Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:dd34e67e3371dc2d1328790c3157ee42dfcae74afffd86b297459ed87a98c0fb",
+        "ResolvConfPath": "/var/lib/docker/containers/44a617766cffce09eccaf63119bc2358ee1c00e5c22d387ec494d0241881b442/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/44a617766cffce09eccaf63119bc2358ee1c00e5c22d387ec494d0241881b442/hostname",
+        "HostsPath": "/var/lib/docker/containers/44a617766cffce09eccaf63119bc2358ee1c00e5c22d387ec494d0241881b442/hosts",
+        "LogPath": "/var/lib/docker/containers/44a617766cffce09eccaf63119bc2358ee1c00e5c22d387ec494d0241881b442/44a617766cffce09eccaf63119bc2358ee1c00e5c22d387ec494d0241881b442-json.log",
+        "Name": "/MyNginx",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                30,
+                85
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "KernelMemory": 0,
+            "KernelMemoryTCP": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/381d2e620411d4602e5827c48db578af3dbf2b38ee0cbfaf2f9e286ca6bd7024-init/diff:/var/lib/docker/overlay2/9c75ce272d4165bf863ffea24cb844fb26e195a4e58d232d4da37807d9e89dd7/diff:/var/lib/docker/overlay2/4d94cf81a330ff7e3fe04d006b113457f1c64e6301a04c4bad794e25e1c83898/diff:/var/lib/docker/overlay2/e982556e79acfe54526a03dbd56a69002516635e8f2dcb6228f1fe3a6660d8c3/diff:/var/lib/docker/overlay2/26b85a0898c00c647b12167e473f9fd58c4e5b76db80c9de7a15507ff5b48d39/diff:/var/lib/docker/overlay2/9d202ebbd61e5e71328e8874d40a9c959fa04f65c6072eb10433ce21bbc27c69/diff:/var/lib/docker/overlay2/137d81254fa837f482ddf752b0ef0ab47665cd507e5cf55b52a9db350c314a7b/diff",
+                "MergedDir": "/var/lib/docker/overlay2/381d2e620411d4602e5827c48db578af3dbf2b38ee0cbfaf2f9e286ca6bd7024/merged",
+                "UpperDir": "/var/lib/docker/overlay2/381d2e620411d4602e5827c48db578af3dbf2b38ee0cbfaf2f9e286ca6bd7024/diff",
+                "WorkDir": "/var/lib/docker/overlay2/381d2e620411d4602e5827c48db578af3dbf2b38ee0cbfaf2f9e286ca6bd7024/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "44a617766cff",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NGINX_VERSION=1.21.1",
+                "NJS_VERSION=0.6.1",
+                "PKG_RELEASE=1~buster"
+            ],
+            "Cmd": [
+                "nginx",
+                "-g",
+                "daemon off;"
+            ],
+            "Image": "nginx",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "maintainer": "NGINX Docker Maintainers \u003cdocker-maint@nginx.com\u003e"
+            },
+            "StopSignal": "SIGQUIT"
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "eda008cd4d13d50294b09749bd928c50f1bc610ee7a3fc966fcc9f3cb6a441cb",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "80/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/eda008cd4d13",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "ea78d6cbaa55e32b29420ffdf78bc41b0677a742d0f3ce0354599b441ae8b4e8",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.2",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:02",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "a1380d103c32279d5822cf8349c7a8caf119c1214a82ee3ca4eea80e88b5251d",
+                    "EndpointID": "ea78d6cbaa55e32b29420ffdf78bc41b0677a742d0f3ce0354599b441ae8b4e8",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+
+
+10) Get the Apache Tomcat 7 server image from the docker hub.
+Soln.
+C:\Users\Asus>docker pull tomcat:9
+9: Pulling from library/tomcat
+4c25b3090c26: Already exists
+1acf565088aa: Pull complete
+b95c0dd0dc0d: Pull complete
+5cf06daf6561: Pull complete
+4e432034bc67: Pull complete
+7856767ece4e: Pull complete
+c2503997378c: Pull complete
+057c8e65fd7d: Pull complete
+725bf0e5c455: Pull complete
+ce154e42946f: Pull complete
+Digest: sha256:4d31b5426be8b88d10205184623a6a593708630707d04a38d04dffb3de6341f7
+Status: Downloaded newer image for tomcat:9
+docker.io/library/tomcat:9
+
+
+11) Run the Apache Tomcat 7, I mean create a container of Apache Tomcat.
+Soln.
+C:\Users\Asus>docker run -d -it --rm --name MyTomcat tomcat:9
+6d24ba63ca5796ccb24dc502c1866a972cdf1f8fd40cdf82ee18c131792677bd
+
+
+12) Find out what is the IP Address of the Apache Tomcat Container that it is running on
+Soln.
+C:\Users\Asus>docker exec -it 6d24ba63ca57 hostname -i
+172.17.0.3
+
+
+13) Which port it is using?
+Soln.
+8080/tcp
+
+
+14) Try to access the Tomcat's home page from your machine/vm.
+Soln.
+C:\Users\Asus>docker run -d -it --rm -p 8888:8080 tomcat:9
+4fae31f8fce05245a1e85774ffae756c3b3ff063c1ae670d9b6917202e53e632
+
+
+15) What is the disk size of Apache Tomcat image?
+Soln.
+C:\Users\Asus>docker images -a tomcat
+REPOSITORY   TAG       IMAGE ID           CREATED      SIZE
+tomcat             9       619f72b6dce7     3 days ago    685MB
+
+
+16) Find out list of all environment variables that is configured for tomcat image, can you see JAVA_HOME and CATALINA_HOME? What did you notice about it?
+Soln.
+C:\Users\Asus>docker exec 6d24ba63ca57 env
+PATH=/usr/local/tomcat/bin:/usr/local/openjdk-11/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+HOSTNAME=6d24ba63ca57
+JAVA_HOME=/usr/local/openjdk-11
+LANG=C.UTF-8
+JAVA_VERSION=11.0.12
+CATALINA_HOME=/usr/local/tomcat
+TOMCAT_NATIVE_LIBDIR=/usr/local/tomcat/native-jni-lib
+LD_LIBRARY_PATH=/usr/local/tomcat/native-jni-lib
+GPG_KEYS=48F8E69F6390C9F25CFEDCD268248959359E722B A9C5DF4D22E99998D9875A5110C01C5A2F6059E7 DCFD35E0BF8CA7344752DE8B6FB21E8933C60243
+TOMCAT_MAJOR=9
+TOMCAT_VERSION=9.0.52
+TOMCAT_SHA512=35e007e8e30e12889da27f9c71a6f4997b9cb5023b703d99add5de9271828e7d8d4956bf34dd2f48c7c71b4f8480f318c9067a4cd2a6d76eaae466286db4897b
+HOME=/root
+
+
+17) Find out which port is exposed for tomcat?
+Soln.
+C:\Users\Asus>docker port thirsty_ptolemy
+8080/tcp -> 0.0.0.0:8888
+8080/tcp -> :::8888
+
+
+18) Run multiple containers of tomcat on different port and access it's home page.
+Soln.
+C:\Users\Asus>docker run -d -it --rm -p 7070:8080 tomcat:9
+9e4536965c4eed3576fa4a8eb5152dc9b29da692cc06024967248f8a804cdd28
+
+C:\Users\Asus>docker run -d -it --rm -p 9090:8080 tomcat:9
+9856abd0b0a9daf7b2d2a6194e0cfbfb2233baab7487caef5d6f01055af51460
+
+C:\Users\Asus>docker ps
+CONTAINER ID     IMAGE         COMMAND                        CREATED               STATUS                  PORTS                                                           NAMES
+9856abd0b0a9   tomcat:9   "catalina.sh run"             6 seconds ago     Up 5 seconds     0.0.0.0:9090->8080/tcp, :::9090->8080/tcp   gifted_grothendieck
+9e4536965c4e    tomcat:9   "catalina.sh run"             23 seconds ago   Up 19 seconds   0.0.0.0:7070->8080/tcp, :::7070->8080/tcp   gifted_lalande
+4fae31f8fce0      tomcat:9   "catalina.sh run"             30 minutes ago   Up 29 minutes   0.0.0.0:8888->8080/tcp, :::8888->8080/tcp   thirsty_ptolemy
+6d24ba63ca57   tomcat:9   "catalina.sh run"             39 minutes ago   Up 39 minutes   8080/tcp                                                          MyTomcat
+44a617766cff     nginx         "/docker-entrypoint.…"  24 hours ago       Up 24 hours       80/tcp                                                              MyNginx
+
+
+19) Pull ubuntu os from dockerhub, try to pull 2 images of ubuntu, Except the latest one.
+Soln.
+C:\Users\Asus>docker pull ubuntu:rolling
+rolling: Pulling from library/ubuntu
+d7e10407b4d9: Pull complete
+Digest: sha256:d5f1676ce05cd3251b583f19dad1793f9ab499baf463e730e494a640d6c77c2c
+Status: Downloaded newer image for ubuntu:rolling
+docker.io/library/ubuntu:rolling
+
+C:\Users\Asus>docker pull ubuntu:bionic
+bionic: Pulling from library/ubuntu
+e4ca327ec0e7: Pull complete
+Digest: sha256:9bc830af2bef73276515a29aa896eedfa7bdf4bdbc5c1063b4c457a4bbb8cd79
+Status: Downloaded newer image for ubuntu:bionic
+docker.io/library/ubuntu:bionic
+
+
+20) Run the container of ubuntu in attached mode.
+Soln.
+C:\Users\Asus>docker run -it --name MyUbuntu1 ubuntu:rolling
+root@0799c2c07be2:/#
+root@0799c2c07be2:/# exit
+exit
+
+
+21) Run the container of another ubuntu in detached mode.
+Soln.
+C:\Users\Asus>docker run -d -it --name MyUbuntu2 ubuntu:bionic
+8f7b5195e3776e432801e02e9d1867b1b5301e09e93b7917a4ac85b4460bff7f
+
+
+22) Check how many ubuntu containers are running and stopped
+Soln.
+C:\Users\Asus>docker ps -a
+CONTAINER ID         IMAGE            COMMAND                             CREATED                          STATUS                                          PORTS                                             NAMES
+8f7b5195e377   ubuntu:bionic         "bash"                         About a minute ago     Up 58 seconds                                                                                            MyUbuntu2
+0799c2c07be2   ubuntu:rolling         "bash"                        10 minutes ago             Exited (0) 9 minutes ago                                                                            MyUbuntu1
+9856abd0b0a9   tomcat:9           "catalina.sh run"             3 hours ago                   Up 3 hours                          0.0.0.0:9090->8080/tcp, :::9090->8080/tcp   gifted_grothendieck
+9e4536965c4e    tomcat:9           "catalina.sh run"             3 hours ago                   Up 3 hours                          0.0.0.0:7070->8080/tcp, :::7070->8080/tcp   gifted_lalande
+4fae31f8fce0      tomcat:9           "catalina.sh run"             4 hours ago                   Up 4 hours                          0.0.0.0:8888->8080/tcp, :::8888->8080/tcp   thirsty_ptolemy
+6d24ba63ca57   tomcat:9           "catalina.sh run"             4 hours ago                   Up 4 hours                          8080/tcp                                                          MyTomcat
+44a617766cff     nginx                "/docker-entrypoint.…"   27 hours ago                 Up 27 hours                         80/tcp                                                              MyNginx
+e00e32316466   nginx                "/docker-entrypoint.…"   27 hours ago                 Exited (0) 27 hours ago                                                                                dreamy_wing
+
+
+23) Is the tomcat container running? If no, start one.
+Soln.
+Yes.
+
+
+24) Check the logs, generated by tomcat container(don't forget to make request to tomcat's home page to see the log).
+Soln.
+C:\Users\Asus>docker logs thirsty_ptolemy
+Using CATALINA_BASE:   /usr/local/tomcat
+Using CATALINA_HOME:   /usr/local/tomcat
+Using CATALINA_TMPDIR: /usr/local/tomcat/temp
+Using JRE_HOME:        /usr/local/openjdk-11
+Using CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar
+Using CATALINA_OPTS:
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+04-Sep-2021 06:59:10.782 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.52
+04-Sep-2021 06:59:10.786 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jul 31 2021 04:12:17 UTC
+04-Sep-2021 06:59:10.786 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.52.0
+04-Sep-2021 06:59:10.786 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+04-Sep-2021 06:59:10.787 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.10.16.3-microsoft-standard-WSL2
+04-Sep-2021 06:59:10.787 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+04-Sep-2021 06:59:10.787 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/local/openjdk-11
+04-Sep-2021 06:59:10.787 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.12+7
+04-Sep-2021 06:59:10.787 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+04-Sep-2021 06:59:10.787 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+04-Sep-2021 06:59:10.787 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+04-Sep-2021 06:59:10.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+04-Sep-2021 06:59:10.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+04-Sep-2021 06:59:10.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+04-Sep-2021 06:59:10.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+04-Sep-2021 06:59:10.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+04-Sep-2021 06:59:10.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+04-Sep-2021 06:59:10.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+04-Sep-2021 06:59:10.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+04-Sep-2021 06:59:10.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+04-Sep-2021 06:59:10.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+04-Sep-2021 06:59:10.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+04-Sep-2021 06:59:10.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+04-Sep-2021 06:59:10.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+04-Sep-2021 06:59:10.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+04-Sep-2021 06:59:10.813 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [1.2.30] using APR version [1.7.0].
+04-Sep-2021 06:59:10.813 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+04-Sep-2021 06:59:10.813 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+04-Sep-2021 06:59:10.821 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1k  25 Mar 2021]
+04-Sep-2021 06:59:11.241 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+04-Sep-2021 06:59:11.276 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [826] milliseconds
+04-Sep-2021 06:59:11.353 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+04-Sep-2021 06:59:11.353 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.52]
+04-Sep-2021 06:59:11.364 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+04-Sep-2021 06:59:11.378 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [101] milliseconds
+
+
+25) Check if ubuntu container is running? If no, start one in attached mode to the terminal.
+Soln.
+C:\Users\Asus>docker start MyUbuntu1
+MyUbuntu1
+
+
+26) Login as root user in ubuntu container
+Soln.
+C:\Users\Asus>docker exec -it MyUbuntu1 bash
+root@0799c2c07be2:/#
+
+
+27) Create a file with any name in root directory.
+Soln.
+C:\Users\Asus>docker exec -it MyUbuntu1 bash
+root@0799c2c07be2:/# ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@0799c2c07be2:/# cd /root
+root@0799c2c07be2:~# ls
+root@0799c2c07be2:~# touch index.txt
+root@0799c2c07be2:~# ls
+index.txt
+root@0799c2c07be2:~# cd ..
+root@0799c2c07be2:/#
+
+
+28) Install software of your choice in ubuntu container using "apt-get install".
+Soln.
+root@0799c2c07be2:/# apt-get install python
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package python
+root@0799c2c07be2:/# apt-get update
+.
+.
+root@0799c2c07be2:/# apt-get install python
+.
+.
+
+
+29) Now exit the ubuntu shell, are you back to your host machine, if not, come back to the host machine.
+Soln.
+root@0799c2c07be2:/#
+root@0799c2c07be2:/# exit
+exit
+
+
+30) Check if the ubuntu container is running.
+Soln.
+C:\Users\Asus>docker ps
+CONTAINER ID       IMAGE                  COMMAND                  CREATED            STATUS                        PORTS                                                  NAMES
+8f7b5195e377    ubuntu:bionic    "bash"                              2 hours ago    Up 2 hours                                                                              MyUbuntu2
+0799c2c07be2    ubuntu:rolling   "bash"                               2 hours ago    Up 32 minutes                                                                        MyUbuntu1
+9856abd0b0a9   tomcat:9            "catalina.sh run"              5 hours ago    Up 5 hours      0.0.0.0:9090->8080/tcp, :::9090->8080/tcp   gifted_grothendieck
+9e4536965c4e    tomcat:9            "catalina.sh run"              5 hours ago    Up 5 hours      0.0.0.0:7070->8080/tcp, :::7070->8080/tcp   gifted_lalande
+4fae31f8fce0      tomcat:9            "catalina.sh run"              5 hours ago    Up 5 hours      0.0.0.0:8888->8080/tcp, :::8888->8080/tcp   thirsty_ptolemy
+6d24ba63ca57   tomcat:9            "catalina.sh run"              5 hours ago    Up 5 hours      8080/tcp                                                          MyTomcat
+44a617766cff     nginx                  "/docker-entrypoint.…"   28 hours ago   Up 28 hours     80/tcp                                                            MyNginx
+
+
+31) Create a new ubuntu container out of the same image as that previous container in attached mode.
+Soln.
+C:\Users\Asus>docker run -it --name MyUbuntu3 ubuntu:rolling
+root@58419a581b6d:/#
+
+
+32) Login as a root user.
+Soln.
+root@58419a581b6d:/#
+
+
+33) Check if you can see the file created in previous container, you will not see the file as well as software that you installed in the previous container. Now kill this Container.
+Soln.
+root@58419a581b6d:/# cd /root
+root@58419a581b6d:~# ls
+root@58419a581b6d:~#
+root@58419a581b6d:~# cd ..
+root@58419a581b6d:/# which python
+root@58419a581b6d:/#
+root@58419a581b6d:/# exit
+exit
+
+C:\Users\Asus>docker start MyUbuntu3
+MyUbuntu3
+
+C:\Users\Asus>docker kill MyUbuntu3
+MyUbuntu3
+
+
+34) Do you have the previous ubuntu container where you created the file and installed the software? If no repeat step 25 to 29.
+Soln.
+Yes, the ubuntu container (ubuntu:rolling -> MyUbuntu1) is present. 
+
+
+35) Create an Image out of the existing container.
+Soln.
+C:\Users\Asus>docker commit 0799c2c07be2 psimg
+sha256:e8d802ddbae191ba82890bd2a3fe8a6ff5f9c166b06f8544ba28dd6313fcf567
+
+C:\Users\Asus>docker images
+REPOSITORY          TAG        IMAGE ID          CREATED             SIZE
+psimg                   latest    e8d802ddbae1  47 seconds ago   193MB
+tomcat                 9           619f72b6dce7    3 days ago           685MB
+myimage             1.0         144b81df8cd1   4 days ago           103MB
+ubuntu                rolling   e5ec58a9f549    4 days ago           80MB
+ubuntu                bionic   54919e10a95d   4 days ago           63.1MB
+jenkins/jenkins   latest    8360c5d104f2    10 days ago         441MB
+redis                    latest    ddcca4b8a6f0    2 weeks ago        105MB
+nginx                   latest    dd34e67e3371   2 weeks ago        133MB
+ubuntu                latest    1318b700e415   5 weeks ago        72.8MB
+hello-world         latest    d1165f221234    6 months ago     13.3kB
+
+
+36) Now Create a Container out of this image and login into it to see if you can see the file and software installed by you in the previous container.
+Soln.
+C:\Users\Asus>docker run -it --name MyUbuntu4 psimg
+root@c8ff64eb2abf:/# ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@c8ff64eb2abf:/# cd /root
+root@c8ff64eb2abf:~# ls
+index.txt
+root@c8ff64eb2abf:~# cd ..
+root@c8ff64eb2abf:/# which python
+/usr/bin/python
+root@c8ff64eb2abf:/# exit
+exit
+
+
+37) Do you have running tomcat container? If yes, Stop it and kill all tomcat container.
+Soln.
+C:\Users\Asus>docker stop 9856abd0b0a9
+9856abd0b0a9
+
+C:\Users\Asus>docker stop gifted_lalande
+gifted_lalande
+
+C:\Users\Asus>docker stop thirsty_ptolemy
+thirsty_ptolemy
+
+C:\Users\Asus>docker stop MyTomcat
+MyTomcat
+
+
+38)  Create an index.html file with following code in it:-
+<h1>This is Tomcat Container</h1>
+Now, Start a ubuntu container, login into the ubuntu, install nginx, access nginx's home page from the container,
+Now, come out of the ubuntu container and replace the existing index.html page of nginx with above index.html page that you created, Now access the nginx server from host machine, it should display the index.html that you have created
+Soln.
+C:\Users\Asus>docker start MyUbuntu2
+MyUbuntu2
+
+C:\Users\Asus>docker exec -it MyUbuntu2 bash
+root@8f7b5195e377:/# which nginx
+root@8f7b5195e377:/# ls
+bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  lib   media  opt  root  sbin  sys  usr
+root@8f7b5195e377:/# cd /root
+root@8f7b5195e377:~# cd ..
+root@8f7b5195e377:/# apt-get install nginx
+root@8f7b5195e377:/# apt-get install curl
+root@8f7b5195e377:/# service nginx start
+ * Starting nginx nginx                                                             [ OK ]
+root@8f7b5195e377:/# curl http://localhost:80
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+root@8f7b5195e377:/# exit
+exit
+
+C:\Users\Asus>docker run -it --rm -d -p 8080:80 --name web nginx                 
+1c7a6fef5d717d3f588288363df61e0e00e4ffa9d87ff358e71e64e50a965be5                                                              
+
+C:\Users\Asus>docker stop web                                                    
+web
+
+C:\Users\Asus>docker run -it --rm -d -p 8080:80 --name web1 -v ~/site-content:/usr/share/nginx/html nginx
+f6d326442b5d8e08077cab74d4c349d2effaf25c836235179c8576ddc6a1e950
+
+
+39) type below command:-
+docker images --help
+Now, try to run command that proves the concept of following three options:-
+1. -a
+2. -f
+3. -q
+write atleast 1 command using each option above and prove their concepts as described in the --
+help.
+Soln.
+C:\Users\Asus>docker images --help
+
+Usage:  docker images [OPTIONS] [REPOSITORY[:TAG]]
+
+List images
+
+Options:
+  -a, --all             Show all images (default hides intermediate images)
+      --digests         Show digests
+  -f, --filter filter   Filter output based on conditions provided
+      --format string   Pretty-print images using a Go template
+      --no-trunc        Don't truncate output
+  -q, --quiet           Only show image IDs
+
+C:\Users\Asus>docker images -a
+REPOSITORY        TAG       IMAGE ID       CREATED        SIZE
+psimg             latest    e8d802ddbae1   41 hours ago   193MB
+tomcat            9         619f72b6dce7   5 days ago     685MB
+myimage           1.0       144b81df8cd1   6 days ago     103MB
+ubuntu            rolling   e5ec58a9f549   6 days ago     80MB
+ubuntu            bionic    54919e10a95d   6 days ago     63.1MB
+jenkins/jenkins   latest    8360c5d104f2   12 days ago    441MB
+redis             latest    ddcca4b8a6f0   2 weeks ago    105MB
+nginx             latest    dd34e67e3371   2 weeks ago    133MB
+ubuntu            latest    1318b700e415   5 weeks ago    72.8MB
+hello-world       latest    d1165f221234   6 months ago   13.3kB
+
+C:\Users\Asus>docker images -f "dangling=false"
+REPOSITORY        TAG       IMAGE ID       CREATED        SIZE
+psimg             latest    e8d802ddbae1   41 hours ago   193MB
+tomcat            9         619f72b6dce7   5 days ago     685MB
+myimage           1.0       144b81df8cd1   6 days ago     103MB
+ubuntu            rolling   e5ec58a9f549   6 days ago     80MB
+ubuntu            bionic    54919e10a95d   6 days ago     63.1MB
+jenkins/jenkins   latest    8360c5d104f2   12 days ago    441MB
+redis             latest    ddcca4b8a6f0   2 weeks ago    105MB
+nginx             latest    dd34e67e3371   2 weeks ago    133MB
+ubuntu            latest    1318b700e415   5 weeks ago    72.8MB
+hello-world       latest    d1165f221234   6 months ago   13.3kB
+
+C:\Users\Asus>docker images -f "dangling=true"
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+
+C:\Users\Asus>docker images -q
+e8d802ddbae1
+619f72b6dce7
+144b81df8cd1
+e5ec58a9f549
+54919e10a95d
+8360c5d104f2
+ddcca4b8a6f0
+dd34e67e3371
+1318b700e415
+d1165f221234
+
+
+40) type below command:-
+docker ps --help
+Now, try to run command that proves the concept of following six options:-
+1. -a
+2. -f
+3. -q
+4. -n
+5. -l
+6. -s
+write atleast 1 command using each option above and prove their concepts as described in the --
+help.
+Soln.
+C:\Users\Asus>docker ps --help
+
+Usage:  docker ps [OPTIONS]
+
+List containers
+
+Options:
+  -a, --all             Show all containers (default shows just running)
+  -f, --filter filter   Filter output based on conditions provided
+      --format string   Pretty-print containers using a Go template
+  -n, --last int        Show n last created containers (includes all
+                        states) (default -1)
+  -l, --latest          Show the latest created container (includes all
+                        states)
+      --no-trunc        Don't truncate output
+  -q, --quiet           Only display container IDs
+  -s, --size            Display total file sizes
+
+C:\Users\Asus>docker ps -a
+CONTAINER ID   IMAGE                 COMMAND                       CREATED        STATUS                                PORTS                                                     NAMES
+f6d326442b5d   nginx                  "/docker-entrypoint.…"     2 hours ago    Up 2 hours                         0.0.0.0:8080->80/tcp, :::8080->80/tcp   web1
+da636bd6f38e   nginx                   "/docker-entrypoint.…"    2 hours ago    Exited (0) 2 hours ago                                                                       unruffled_mahavira
+de7d645151e5   nginx                  "/docker-entrypoint.…"    3 hours ago    Exited (0) 3 hours ago                                                                        website
+c8ff64eb2abf      psimg                 "bash"                               38 hours ago   Exited (0) 38 hours ago                                                                     MyUbuntu4
+58419a581b6d   ubuntu:rolling   "bash"                               43 hours ago   Exited (137) 43 hours ago                                                                 MyUbuntu3
+8f7b5195e377    ubuntu:bionic    "bash"                              45 hours ago   Up 2 hours                                                                                          MyUbuntu2
+0799c2c07be2    ubuntu:rolling   "bash"                               46 hours ago   Up 44 hours                                                                                        MyUbuntu1
+44a617766cff     nginx                   "/docker-entrypoint.…"   3 days ago       Exited (0) 4 hours ago                                                                        MyNginx
+e00e32316466   nginx                   "/docker-entrypoint.…"   3 days ago       Exited (0) 3 days ago                                                                           dreamy_wing
+
+C:\Users\Asus>docker ps -f name=MyUbuntu
+CONTAINER ID   IMAGE                COMMAND   CREATED        STATUS        PORTS     NAMES
+8f7b5195e377   ubuntu:bionic    "bash"       45 hours ago   Up 2 hours                 MyUbuntu2
+0799c2c07be2   ubuntu:rolling   "bash"       46 hours ago   Up 44 hours                MyUbuntu1
+
+C:\Users\Asus>docker ps -q
+f6d326442b5d
+8f7b5195e377
+0799c2c07be2
+
+C:\Users\Asus>docker ps --last 2
+CONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS                   PORTS                                                          NAMES
+f6d326442b5d   nginx     "/docker-entrypoint.…"   2 hours ago   Up 2 hours               0.0.0.0:8080->80/tcp, :::8080->80/tcp   web1
+da636bd6f38e   nginx     "/docker-entrypoint.…"   3 hours ago   Exited (0) 2 hours ago                                                             unruffled_mahavira
+
+C:\Users\Asus>docker ps -l
+CONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS       PORTS                                   NAMES
+f6d326442b5d   nginx     "/docker-entrypoint.…"   2 hours ago   Up 2 hours   0.0.0.0:8080->80/tcp, :::8080->80/tcp   web1
+
+C:\Users\Asus>docker ps -s
+CONTAINER ID   IMAGE            COMMAND                  CREATED        STATUS        PORTS                                   NAMES       SIZE
+f6d326442b5d   nginx            "/docker-entrypoint.…"   2 hours ago    Up 2 hours    0.0.0.0:8080->80/tcp, :::8080->80/tcp   web1        1.09kB (virtual 133MB)
+8f7b5195e377   ubuntu:bionic    "bash"                   45 hours ago   Up 2 hours                                            MyUbuntu2   107MB (virtual 170MB)
+0799c2c07be2   ubuntu:rolling   "bash"                   46 hours ago   Up 44 hours                                           MyUbuntu1   113MB (virtual 193MB)
+
+
+41) Type below command:-
+docker --help
+you will various sections of commands apart from options like "Managemnet Commands" and 
+"Commands".
+Write some texts below describing the use of "Management Commands".
+Use each command mentioned below and prove its concepts as described in the --help desription. 
+write what you have understood from the output of the command after its successful execution.
+1. cp
+2. create
+3. export
+4. history
+5. info
+6. login
+7. logout
+8. rename
+9. save
+10. stats
+11. top
+Soln.
+C:\Users\Asus>docker --help
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Options:
+      --config string      Location of client config files (default
+                           "C:\\Users\\Asus\\.docker")
+  -c, --context string     Name of the context to use to connect to the
+                           daemon (overrides DOCKER_HOST env var and
+                           default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket(s) to connect to
+  -l, --log-level string   Set the logging level
+                           ("debug"|"info"|"warn"|"error"|"fatal")
+                           (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default
+                           "C:\\Users\\Asus\\.docker\\ca.pem")
+      --tlscert string     Path to TLS certificate file (default
+                           "C:\\Users\\Asus\\.docker\\cert.pem")
+      --tlskey string      Path to TLS key file (default
+                           "C:\\Users\\Asus\\.docker\\key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Management Commands:
+  builder     Manage builds
+  buildx*     Build with BuildKit (Docker Inc., v0.6.1-docker)
+  compose*    Docker Compose (Docker Inc., v2.0.0-rc.1)
+  config      Manage Docker configs
+  container   Manage containers
+  context     Manage contexts
+  image       Manage images
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  node        Manage Swarm nodes
+  plugin      Manage plugins
+  scan*       Docker Scan (Docker Inc., v0.8.0)
+  secret      Manage Docker secrets
+  service     Manage services
+  stack       Manage Docker stacks
+  swarm       Manage Swarm
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  build       Build an image from a Dockerfile
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  exec        Run a command in a running container
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  images      List images
+  import      Import the contents from a tarball to create a filesystem image
+  info        Display system-wide information
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  login       Log in to a Docker registry
+  logout      Log out from a Docker registry
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  ps          List containers
+  pull        Pull an image or a repository from a registry
+  push        Push an image or a repository to a registry
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  run         Run a command in a new container
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  search      Search the Docker Hub for images
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  version     Show the Docker version information
+  wait        Block until one or more containers stop, then print their exit codes
+
+Run 'docker COMMAND --help' for more information on a command.
+
+To get more help with docker, check out our guides at https://docs.docker.com/go/guides/
+
+#1
+C:\Users\Asus>docker cp --help
+
+Usage:  docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-
+        docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH
+
+Copy files/folders between a container and the local filesystem
+
+Use '-' as the source to read a tar archive from stdin
+and extract it to a directory destination in a container.
+Use '-' as the destination to stream a tar archive of a
+container source to stdout.
+
+Options:
+  -a, --archive       Archive mode (copy all uid/gid information)
+  -L, --follow-link   Always follow symbol link in SRC_PATH
+
+for eg.
+C:\Users\Asus>docker cp /home/demo/website apache-container:/var/www/html/.
+Here, Docker will copy everything in /home/demo/website and transfer it into var/www/html
+
+$ docker cp index.html 5adf5e086938:/tmp 
+This command copies the the index.html to 5adf5e086938
+
+#2
+C:\Users\Asus>docker create --help
+
+Usage:  docker create [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Create a new container
+
+Options:
+      --add-host list                  Add a custom host-to-IP mapping
+                                       (host:ip)
+  -a, --attach list                    Attach to STDIN, STDOUT or STDERR
+      --blkio-weight uint16            Block IO (relative weight),
+                                       between 10 and 1000, or 0 to
+                                       disable (default 0)
+      --blkio-weight-device list       Block IO weight (relative device
+                                       weight) (default [])
+      --cap-add list                   Add Linux capabilities
+      --cap-drop list                  Drop Linux capabilities
+      --cgroup-parent string           Optional parent cgroup for the
+                                       container
+      --cgroupns string                Cgroup namespace to use
+                                       (host|private)
+                                       'host':    Run the container in
+                                       the Docker host's cgroup namespace
+                                       'private': Run the container in
+                                       its own private cgroup namespace
+                                       '':        Use the cgroup
+                                       namespace as configured by the
+                                                  default-cgroupns-mode
+                                       option on the daemon (default)
+      --cidfile string                 Write the container ID to the file
+      --cpu-period int                 Limit CPU CFS (Completely Fair
+                                       Scheduler) period
+      --cpu-quota int                  Limit CPU CFS (Completely Fair
+                                       Scheduler) quota
+      --cpu-rt-period int              Limit CPU real-time period in
+                                       microseconds
+      --cpu-rt-runtime int             Limit CPU real-time runtime in
+                                       microseconds
+  -c, --cpu-shares int                 CPU shares (relative weight)
+      --cpus decimal                   Number of CPUs
+      --cpuset-cpus string             CPUs in which to allow execution
+                                       (0-3, 0,1)
+      --cpuset-mems string             MEMs in which to allow execution
+                                       (0-3, 0,1)
+      --device list                    Add a host device to the container
+      --device-cgroup-rule list        Add a rule to the cgroup allowed
+                                       devices list
+      --device-read-bps list           Limit read rate (bytes per second)
+                                       from a device (default [])
+      --device-read-iops list          Limit read rate (IO per second)
+                                       from a device (default [])
+      --device-write-bps list          Limit write rate (bytes per
+                                       second) to a device (default [])
+      --device-write-iops list         Limit write rate (IO per second)
+                                       to a device (default [])
+      --disable-content-trust          Skip image verification (default true)
+      --dns list                       Set custom DNS servers
+      --dns-option list                Set DNS options
+      --dns-search list                Set custom DNS search domains
+      --domainname string              Container NIS domain name
+      --entrypoint string              Overwrite the default ENTRYPOINT
+                                       of the image
+  -e, --env list                       Set environment variables
+      --env-file list                  Read in a file of environment variables
+      --expose list                    Expose a port or a range of ports
+      --gpus gpu-request               GPU devices to add to the
+                                       container ('all' to pass all GPUs)
+      --group-add list                 Add additional groups to join
+      --health-cmd string              Command to run to check health
+      --health-interval duration       Time between running the check
+                                       (ms|s|m|h) (default 0s)
+      --health-retries int             Consecutive failures needed to
+                                       report unhealthy
+      --health-start-period duration   Start period for the container to
+                                       initialize before starting
+                                       health-retries countdown
+                                       (ms|s|m|h) (default 0s)
+      --health-timeout duration        Maximum time to allow one check to
+                                       run (ms|s|m|h) (default 0s)
+      --help                           Print usage
+  -h, --hostname string                Container host name
+      --init                           Run an init inside the container
+                                       that forwards signals and reaps
+                                       processes
+  -i, --interactive                    Keep STDIN open even if not attached
+      --ip string                      IPv4 address (e.g., 172.30.100.104)
+      --ip6 string                     IPv6 address (e.g., 2001:db8::33)
+      --ipc string                     IPC mode to use
+      --isolation string               Container isolation technology
+      --kernel-memory bytes            Kernel memory limit
+  -l, --label list                     Set meta data on a container
+      --label-file list                Read in a line delimited file of labels
+      --link list                      Add link to another container
+      --link-local-ip list             Container IPv4/IPv6 link-local
+                                       addresses
+      --log-driver string              Logging driver for the container
+      --log-opt list                   Log driver options
+      --mac-address string             Container MAC address (e.g.,
+                                       92:d0:c6:0a:29:33)
+  -m, --memory bytes                   Memory limit
+      --memory-reservation bytes       Memory soft limit
+      --memory-swap bytes              Swap limit equal to memory plus
+                                       swap: '-1' to enable unlimited swap
+      --memory-swappiness int          Tune container memory swappiness
+                                       (0 to 100) (default -1)
+      --mount mount                    Attach a filesystem mount to the
+                                       container
+      --name string                    Assign a name to the container
+      --network network                Connect a container to a network
+      --network-alias list             Add network-scoped alias for the
+                                       container
+      --no-healthcheck                 Disable any container-specified
+                                       HEALTHCHECK
+      --oom-kill-disable               Disable OOM Killer
+      --oom-score-adj int              Tune host's OOM preferences (-1000
+                                       to 1000)
+      --pid string                     PID namespace to use
+      --pids-limit int                 Tune container pids limit (set -1
+                                       for unlimited)
+      --platform string                Set platform if server is
+                                       multi-platform capable
+      --privileged                     Give extended privileges to this
+                                       container
+  -p, --publish list                   Publish a container's port(s) to
+                                       the host
+  -P, --publish-all                    Publish all exposed ports to
+                                       random ports
+      --pull string                    Pull image before creating
+                                       ("always"|"missing"|"never")
+                                       (default "missing")
+      --read-only                      Mount the container's root
+                                       filesystem as read only
+      --restart string                 Restart policy to apply when a
+                                       container exits (default "no")
+      --rm                             Automatically remove the container
+                                       when it exits
+      --runtime string                 Runtime to use for this container
+      --security-opt list              Security Options
+      --shm-size bytes                 Size of /dev/shm
+      --stop-signal string             Signal to stop a container
+                                       (default "15")
+      --stop-timeout int               Timeout (in seconds) to stop a
+                                       container
+      --storage-opt list               Storage driver options for the
+                                       container
+      --sysctl map                     Sysctl options (default map[])
+      --tmpfs list                     Mount a tmpfs directory
+  -t, --tty                            Allocate a pseudo-TTY
+      --ulimit ulimit                  Ulimit options (default [])
+  -u, --user string                    Username or UID (format:
+                                       <name|uid>[:<group|gid>])
+      --userns string                  User namespace to use
+      --uts string                     UTS namespace to use
+  -v, --volume list                    Bind mount a volume
+      --volume-driver string           Optional volume driver for the
+                                       container
+      --volumes-from list              Mount volumes from the specified
+                                       container(s)
+  -w, --workdir string                 Working directory inside the container
+
+for eg.
+C:\Users\Asus>docker create --name webx ubuntu
+2da9dc51a1a6e57675674295279a7a87a1e7cde55d529add387723c8a938001a
+This create  ubuntu container named webx
+
+#3
+C:\Users\Asus>docker export --help
+
+Usage:  docker export [OPTIONS] CONTAINER
+
+Export a container's filesystem as a tar archive
+
+Options:
+  -o, --output string   Write to a file, instead of STDOUT
+
+for eg.
+C:\Users\Asus>docker export --output="latest.tar" red_panda
+docker export will export the contents of the underlying directory.
+
+#4
+C:\Users\Asus>docker history --help
+
+Usage:  docker history [OPTIONS] IMAGE
+
+Show the history of an image
+
+Options:
+      --format string   Pretty-print images using a Go template
+  -H, --human           Print sizes and dates in human readable format
+                        (default true)
+      --no-trunc        Don't truncate output
+  -q, --quiet           Only show image IDs
+
+for eg.
+C:\Users\Asus>docker history -H e5ec58a9f549
+IMAGE          CREATED      CREATED BY                                                               SIZE                   COMMENT
+e5ec58a9f549   6 days ago   /bin/sh -c #(nop)  CMD ["bash"]                           0B   
+<missing>      6 days ago   /bin/sh -c #(nop) ADD file:4ac73e113682ef48b…   80MB 
+
+#5
+C:\Users\Asus>docker info --help
+
+Usage:  docker info [OPTIONS]
+
+Display system-wide information
+
+Options:
+  -f, --format string   Format the output using the given Go template
+
+for eg.
+C:\Users\Asus>docker info
+Client:
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  buildx: Build with BuildKit (Docker Inc., v0.6.1-docker)
+  compose: Docker Compose (Docker Inc., v2.0.0-rc.1)
+  scan: Docker Scan (Docker Inc., v0.8.0)
+
+Server:
+ Containers: 10
+  Running: 3
+  Paused: 0
+  Stopped: 7
+ Images: 10
+ Server Version: 20.10.8
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 1
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 io.containerd.runtime.v1.linux runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: e25210fe30a0a703442421b0f60afac609f950a3
+ runc version: v1.0.1-0-g4144b63
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: default
+ Kernel Version: 5.10.16.3-microsoft-standard-WSL2
+ Operating System: Docker Desktop
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 4
+ Total Memory: 3GiB
+ Name: docker-desktop
+ ID: TCJM:QILU:5UOS:YBZE:H3M6:N6B5:RG5N:3XMG:CJPH:S5VS:33SB:JCD4
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Registry: https://index.docker.io/v1/
+ Labels:
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+
+WARNING: No blkio throttle.read_bps_device support
+WARNING: No blkio throttle.write_bps_device support
+WARNING: No blkio throttle.read_iops_device support
+WARNING: No blkio throttle.write_iops_device support
+
+This gives detailed information about docker installed on your system.
+
+#6
+C:\Users\Asus>docker login --help
+Log in to a Docker registry or cloud backend.
+If no registry server is specified, the default is defined by the daemon.
+
+Usage:
+  docker login [OPTIONS] [SERVER] [flags]
+  docker login [command]
+
+Available Commands:
+  azure       Log in to azure
+
+Flags:
+  -h, --help              Help for login
+  -p, --password string   password
+      --password-stdin    Take the password from stdin
+  -u, --username string   username
+
+Use "docker login [command] --help" for more information about a command.
+
+for eg. 
+C:\Users\Asus>docker login
+Authenticating with existing credentials...
+Login Succeeded
+
+#7
+C:\Users\Asus>docker logout --help
+Log out from a Docker registry or cloud backend.
+If no server is specified, the default is defined by the daemon.
+
+Usage:
+  docker logout [SERVER] [flags]
+  docker logout [command]
+
+Available Commands:
+  azure       Logout from Azure
+
+Flags:
+  -h, --help   Help for logout
+
+Use "docker logout [command] --help" for more information about a command.
+
+for eg. (performed on docker play)
+[node1] (local) root@192.168.0.28 ~
+$ docker logout
+Removing login credentials for https://index.docker.io/v1/
+
+#8
+C:\Users\Asus>docker rename --help
+
+Usage:  docker rename CONTAINER NEW_NAME
+
+Rename a container
+
+for eg.
+C:\Users\Asus>docker rename dreamy_wing demonginx
+This command will rename dreamy_wing by demonginx. Verify using ps -a command.
+
+#9
+C:\Users\Asus>docker save --help
+
+Usage:  docker save [OPTIONS] IMAGE [IMAGE...]
+
+Save one or more images to a tar archive (streamed to STDOUT by default)
+
+Options:
+  -o, --output string   Write to a file, instead of STDOUT
+
+for eg.
+docker save --output busybox.tar busybox: This will save the cotent of busybox.tar to busybox.
+
+#10
+C:\Users\Asus>docker stats --help
+
+Usage:  docker stats [OPTIONS] [CONTAINER...]
+
+Display a live stream of container(s) resource usage statistics
+
+Options:
+  -a, --all             Show all containers (default shows just running)
+      --format string   Pretty-print images using a Go template
+      --no-stream       Disable streaming stats and only pull the first result
+      --no-trunc        Do not truncate output
+
+for eg.
+CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O   BLOCK I/O   PIDS
+44a617766cff   MyNginx   0.00%     0B / 0B                          0.00%        0B / 0B   0B / 0B         0
+
+#11
+C:\Users\Asus>docker top --help
+
+Usage:  docker top CONTAINER [ps OPTIONS]
+
+Display the running processes of a container
+
+for eg.
+C:\Users\Asus>docker top web1
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+root                9775                9754                0                   06:26               ?                   00:00:00            nginx: master process nginx -g daemon off;
+uuidd               9828                9775                0                   06:26               ?                   00:00:07            nginx: worker process
+uuidd               9829                9775                0                   06:26               ?                   00:00:00            nginx: worker process
+uuidd               9830                9775                0                   06:26               ?                   00:00:00            nginx: worker process
+uuidd               9831                9775                0                   06:26               ?                   00:00:00            nginx: worker process
+
+
+42) Kill all running container in one liner command.
+Soln.
+PS C:\Users\Asus> docker kill $(docker ps -q)
+f6d326442b5d
+8f7b5195e377
+0799c2c07be2
+PS C:\Users\Asus> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+
+43) Delete all images in one liner command.
+Soln.
+PS C:\Users\Asus> docker rmi -f $(docker images -aq)
+PS C:\Users\Asus> docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+
+
+44) Create a simple Dockerfile, build it and run it.
+Soln.
+C:\Users\Asus\Desktop>mkdir DFiles                                                                                                                   
+
+C:\Users\Asus\Desktop>cd DFiles                                                                                                                        
+
+C:\Users\Asus\Desktop\DFiles>type nul>Dockerfile         
+
+C:\Users\Asus\Desktop\DFiles>vim Dockerfile                                      
+
+C:\Users\Asus\Desktop\DFiles>type Dockerfile
+#getting base image
+FROM ubuntu
+MAINTAINER praj_s <prajakta.ravindra-shinde@capgemini.com>
+RUN apt-get update
+CMD ["echo","Hello World..! from my docker image"]    
+                    
+C:\Users\Asus\Desktop\DFiles>docker build -t myimg:1.0 .
+[+] Building 31.3s (7/7) FINISHED
+ => [internal] load build definition from Dockerfile                        0.0s
+ => => transferring dockerfile: 205B                                        0.0s
+ => [internal] load .dockerignore                                           0.0s
+ => => transferring context: 2B                                             0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest            3.8s
+ => [auth] library/ubuntu:pull token for registry-1.docker.io               0.0s
+ => [1/2] FROM docker.io/library/ubuntu@sha256:9d6a8699fb5c9c39cf08a0871bd  9.5s
+ => => resolve docker.io/library/ubuntu@sha256:9d6a8699fb5c9c39cf08a0871bd  0.0s
+ => => sha256:9d6a8699fb5c9c39cf08a0871bd6219f0400981c5708 1.42kB / 1.42kB  0.0s
+ => => sha256:10cbddb6cf8568f56584ccb6c866203e68ab8e621bb87038 529B / 529B  0.0s
+ => => sha256:fb52e22af1b01869e23e75089c368a1130fa538946d0 1.46kB / 1.46kB  0.0s
+ => => sha256:35807b77a593c1147d13dc926a91dcc3015616ff73 28.57MB / 28.57MB  6.6s
+ => => extracting sha256:35807b77a593c1147d13dc926a91dcc3015616ff7307cc304  1.6s
+ => [2/2] RUN apt-get update                                               17.6s
+ => exporting to image                                                      0.2s
+ => => exporting layers                                                     0.2s
+ => => writing image sha256:ca8f8cc569d3c0980207fe8658438bd2d27ec7ab7f90e6  0.0s
+ => => naming to docker.io/library/myimg:1.0                                0.0s
+
+C:\Users\Asus\Desktop\DFiles>docker images
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+myimg        1.0       ca8f8cc569d3   4 minutes ago   103MB
+
+C:\Users\Asus\Desktop\DFiles>docker run ca8f8cc569d3
+Hello World..! from my docker image
+
+
+45) Create one or more Dockerfile that demostrate the following commands in Dockerfile (Write a 
+PoC for each in one or more Dockerfile)
+1. USER
+2. RUN
+3. ENV
+4. CMD
+5. RUN
+6. ENTRYPOINT
+7. EXPOSE
+8. VOLUME
+Soln.
+C:\Users\Asus\Desktop>mkdir DFile2                                                                                                                  
+
+C:\Users\Asus\Desktop>cd DFile2                                                                                                                        
+
+C:\Users\Asus\Desktop\DFile2>type nul>DockerFile                                                                                         
+
+C:\Users\Asus\Desktop\DFile2>dir                                                 
+Volume in drive C is OS                                                          
+Volume Serial Number is 2C34-8585                                                                                                                    
+Directory of C:\Users\Asus\Desktop\DFile2                                                                                                         
+07-09-2021  10:38    <DIR>          .                                            
+07-09-2021  10:38    <DIR>          ..                     
+07-09-2021  10:38                 0 DockerFile                                                  
+1 File(s)              0 bytes                                                   
+2 Dir(s)  100,976,553,984 bytes free     
+                                                                                                          
+C:\Users\Asus\Desktop\DFile2>vim DockerFile                                      
+
+C:\Users\Asus\Desktop\DFile2>type DockerFile
+FROM ubuntu
+MAINTAINER praj_s prajakta.ravindra-shinde@capgemini.com
+USER praj_s prajakta.ravindra-shinde@capgemini.com
+RUN apt-get update
+ENV abc="hello"
+CMD [ "echo" , " hello world" ]
+ENTRYPOINT [ "echo", "Hello, World" ]
+EXPOSE 80
+VOLUME /DFile2
+
+USER:The USER instruction sets the user name (or UID) and optionally the user group (or GID) to use when running the image and for any RUN, CMD and ENTRYPOINT instructions that follow it in the Dockerfile.
+RUN:The RUN instruction will execute any commands in a new layer on top of the current image and commit the results. The resulting committed image will be used for the next step in the Dockerfile.
+ENV:Environment variables (declared with the ENV statement) can also be used in certain instructions as variables to be interpreted by the Dockerfile.
+CMD:There can only be one CMD instruction in a Dockerfile. If you list more than one CMD then only the last CMD will take effect.
+ENTRYPOINT:An ENTRYPOINT allows you to configure a container that will run as an executable.
+EXPOSE:The EXPOSE instruction informs Docker that the container listens on the specified network ports at runtime. You can specify whether the port listens on TCP or UDP, and the default is TCP if the protocol is not specified.
+VOLUME:The VOLUME instruction creates a mount point with the specified name and marks it as holding externally mounted volumes from native host or other containers.
+
+
+46) Dockerhub:-
+Find an application you care about on docker hub.
+Launch the container.
+Install another application in it.
+Save (commit) the image.
+Upload that to docker hub in your account and share it with a colleague, ask them to use 
+your image and run the container out of it in their machine/vm.
+Soln.
+C:\Users\Asus>docker run -d -it ubuntu
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+35807b77a593: Already exists
+Digest: sha256:9d6a8699fb5c9c39cf08a0871bd6219f0400981c570894cd8cbea30d3424a31f
+Status: Downloaded newer image for ubuntu:latest
+265b183e1e70adf4e765d73930e1fb016d9d3a22dee8232d7d27267d6aac2e8a
+
+C:\Users\Asus>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS         PORTS     NAMES
+265b183e1e70   ubuntu    "bash"    11 seconds ago   Up 9 seconds                gifted_poitras
+
+C:\Users\Asus>docker exec -it 265b183e1e70 bash
+root@265b183e1e70:/# which nginx
+root@265b183e1e70:/# apt-get install nginx
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package nginx
+root@265b183e1e70:/# apt-get update
+.
+.
+root@265b183e1e70:/# apt-get install nginx
+.
+.
+root@265b183e1e70:/# exit
+exit
+
+C:\Users\Asus>docker commit 265b183e1e70 pshinde19/newnignx
+sha256:7dc568bff6d654f373a758940019c4a308ec6a2dc3ce4e88a2016a7a7a4deece
+
+C:\Users\Asus>docker images
+REPOSITORY                 TAG       IMAGE ID          CREATED              SIZE
+pshinde19/newnignx   latest   7dc568bff6d6    11 seconds ago   162MB
+myimg                           1.0       ca8f8cc569d3     45 minutes ago   103MB
+ubuntu                         latest    fb52e22af1b0   7 days ago            72.8MB
+
+C:\Users\Asus>docker login
+Authenticating with existing credentials...
+Login Succeeded
+
+C:\Users\Asus>docker push pshinde19/newnignx:latest
+The push refers to repository [docker.io/pshinde19/newnignx]
+42aeac295fb2: Pushed
+4942a1abcbfa: Mounted from library/ubuntu
+latest: digest: sha256:022e25bf075bb4d1d146d8e79daca54e3a23c256ad2174b7acbedb33c66df7ec size: 741
